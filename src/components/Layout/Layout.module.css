@@ -1,0 +1,20 @@
+.layout {
+    min-height: 100vh;
+}
+
+.content {
+    margin: 24px 16px 0;
+}
+
+.wrap {
+    padding: 24px;
+    background: #fff;
+    min-height: 560px;
+}
+
+@media all and (max-width: 500px) {
+    .content {
+        margin: 0;
+        border-left: 1px solid #e8e8e8;
+    }
+}
