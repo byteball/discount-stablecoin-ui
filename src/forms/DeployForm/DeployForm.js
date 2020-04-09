@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import obyte from "obyte";
+import obyte from "obytenewfork";
 import { trim } from "lodash";
 import { Form, Input, Button, Row, Col, DatePicker } from "antd";
 import moment from "moment";
@@ -253,7 +253,7 @@ export const DeployForm = ({ params }) => {
     ev.preventDefault();
     const url = `obyte${
       config.TESTNET ? "-tn" : ""
-    }:data?app=definition&definition=${encodeURIComponent(AA)}`;
+      }:data?app=definition&definition=${encodeURIComponent(AA)}`;
     dispatch(
       pendingDeployRequest(
         {
@@ -281,8 +281,8 @@ export const DeployForm = ({ params }) => {
     oracle: '${oracle.value}',
     overcollateralization_ratio: ${collateralizationRatio.value},
     max_loan_value_in_underlying: ${String(
-      Number(maxLoan.value) * 10 ** Number(decimals.value)
-    )}, 
+    Number(maxLoan.value) * 10 ** Number(decimals.value)
+  )}, 
     decimals: ${decimals.value}, 
     auction_period: ${auctionPeriod.value}, 
     liquidation_ratio: ${liquidationRatio.value}, 

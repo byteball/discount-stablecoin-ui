@@ -1,4 +1,4 @@
-import obyte from "obyte";
+import obyte from "obytenewfork";
 import client from "../socket";
 import config from "../config";
 

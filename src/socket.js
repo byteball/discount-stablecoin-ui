@@ -1,5 +1,4 @@
-// import obyte from "obyte";
-import obyte from "./obyte.min";
+import obyte from "obytenewfork";
 import config from "./config";
 let client;
 try {

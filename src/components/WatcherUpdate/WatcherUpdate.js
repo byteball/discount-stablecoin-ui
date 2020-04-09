@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { message, Result, Spin } from "antd";
-import obyte from "obyte";
+import obyte from "obytenewfork";
 import {
   changeActiveAA,
   watchRequestAas,
@@ -69,7 +69,7 @@ export const WatcherUpdate = props => {
         clearInterval(heartbeat);
       });
 
-      const heartbeat = setInterval(function() {
+      const heartbeat = setInterval(function () {
         client.api.heartbeat();
       }, 10 * 1000);
 
@@ -81,7 +81,7 @@ export const WatcherUpdate = props => {
       const update = setInterval(() => {
         dispatch(updateRate());
       }, 60000);
-      return () => {};
+      return () => { };
     });
   });
 
