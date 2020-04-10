@@ -21,7 +21,7 @@ const initStateInput = {
   }
 };
 const defaultValues = {
-  oracle: "F4KHJUCLJKY4JV7M5F754LAJX4EB7M4N",
+  oracle: config.TESTNET ? "F4KHJUCLJKY4JV7M5F754LAJX4EB7M4N" : "JPQKPRI5FMTQRJF4ZZMYZYDQVRD55OTC",
   feedName: "GBYTE_USD",
   maFeedName: "GBYTE_USD_MA",
   maxLoan: "100000",
