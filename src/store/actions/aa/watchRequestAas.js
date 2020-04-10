@@ -268,7 +268,7 @@ export const watchRequestAas = () => (dispatch, getState) => {
             const res = result[1].body.response;
             if (res.responseVars) {
               const asset =
-                "asset" in store.aa.activeInfo && store.aa.activeInfo.asset;
+                  store.aa.activeInfo && "asset" in store.aa.activeInfo && store.aa.activeInfo.asset;
               if (asset) {
                 if (asset in res.responseVars) {
                   const symbol = res.responseVars[asset];
