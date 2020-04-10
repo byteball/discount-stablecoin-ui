@@ -1,0 +1,14 @@
+.row{
+    cursor: pointer;
+}
+.viewRow{
+    padding: 15px 10px;
+    background-color: #f5f5f5;
+    word-break: break-all;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.viewRow:hover{
+    opacity: 0.7;
+}
