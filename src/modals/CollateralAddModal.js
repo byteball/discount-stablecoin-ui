@@ -21,7 +21,7 @@ export const CollateralAddModal = ({ visible, id, onCancel }) => {
     const reg = /^[0-9.]+$/g;
     if (value) {
       if (reg.test(value)) {
-        if (Number(value) <= 10000000000000000 / 10 ** 9) {
+        if (Number(value) <= 1e16 / 10 ** 9) {
           if (Number(value) >= 100000 / 10 ** 9) {
             setLoanCollateral({
               ...loanCollateral,

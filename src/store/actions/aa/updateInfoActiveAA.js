@@ -64,7 +64,7 @@ export const updateInfoActiveAA = address => async (dispatch, getState) => {
         ) {
           const exchange_rate = store.aa.activeDataFeedMa;
           const min_collateral =
-            (coins[id].amount / 100 / exchange_rate) * 1000000000;
+            (coins[id].amount / 100 / exchange_rate) * 1e9;
           const min_collateral_liquidation = Math.ceil(
             min_collateral * store.aa.activeParams.liquidation_ratio
           );

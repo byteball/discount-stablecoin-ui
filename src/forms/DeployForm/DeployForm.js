@@ -134,7 +134,7 @@ export const DeployForm = ({ params }) => {
     const reg = /^[0-9.]+$/g;
     if (value) {
       if (reg.test(value)) {
-        if (Number(value) <= 10000000000000000) {
+        if (Number(value) <= 1e16) {
           changeInput("maxLoan", value, true);
         } else {
           changeInput("maxLoan", value, false, t("forms.error.muchValue"));
@@ -149,7 +149,7 @@ export const DeployForm = ({ params }) => {
     const reg = /^[0-9]+$/g;
     if (value) {
       if (reg.test(value)) {
-        if (Number(value) <= 10000000000000000) {
+        if (Number(value) <= 1e16) {
           if (Number(value) >= 3000) {
             changeInput("auctionPeriod", value, true);
           } else {

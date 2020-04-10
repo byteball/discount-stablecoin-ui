@@ -38,7 +38,7 @@ export const AuctionPage = props => {
         ? wallets.filter(wallet => wallet === coins[id].owner).length > 0
         : false;
       const min_collateral =
-        (amount / Math.pow(10, decimals) / exchange_rate) * 1000000000;
+        (amount / Math.pow(10, decimals) / exchange_rate) * 1e9;
       const percent = Math.ceil((collateral / min_collateral) * 100);
       const current_bid = min_bid;
       const bid = winner_bid ? Math.ceil(winner_bid * 1.01) : min_bid;

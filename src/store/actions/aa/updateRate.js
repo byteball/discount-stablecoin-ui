@@ -53,7 +53,7 @@ export const updateRate = () => async (dispatch, getState) => {
                 (coins[id].amount /
                   Math.pow(10, store.aa.activeParams.decimals) /
                   exchange_rate) *
-                1000000000;
+                1e9;
               const min_collateral_liquidation = Math.round(
                 min_collateral * store.aa.activeParams.liquidation_ratio
               );

@@ -13,7 +13,7 @@ export const LoanMobView = ({
   collateral,
   percent,
   disabledRepayment,
-  setIdCollateral,
+  setLoanId,
   handleClickRepayment
 }) => {
   const activeParams = useSelector(state => state.aa.activeParams);
@@ -36,7 +36,7 @@ export const LoanMobView = ({
         <Button
           type="primary"
           style={{ marginRight: 25 }}
-          onClick={() => setIdCollateral(id)}
+          onClick={() => setLoanId(id)}
         >
           {t("components.loanListByAddress.actions.collateral")}
         </Button>

@@ -110,8 +110,8 @@ export const SearchForm = ({ onSearch }) => {
     const reg = /^[0-9]+$/g;
     if (value) {
       if (reg.test(value)) {
-        if (Number(value) <= 10000000000000000) {
-          if (Number(value) * 10 ** Number(decimals.value) >= 1000000000) {
+        if (Number(value) <= 1e16) {
+          if (Number(value) * 10 ** Number(decimals.value) >= 1e9) {
             changeInput("maxLoan", value, true);
           } else {
             changeInput(
@@ -119,7 +119,7 @@ export const SearchForm = ({ onSearch }) => {
               value,
               false,
               t("forms.error.minNum", {
-                count: String(1000000000 / 10 ** Number(decimals.value))
+                count: String(1e9 / 10 ** Number(decimals.value))
               })
             );
           }
@@ -136,7 +136,7 @@ export const SearchForm = ({ onSearch }) => {
     const reg = /^[0-9]+$/g;
     if (value) {
       if (reg.test(value)) {
-        if (Number(value) <= 10000000000000000) {
+        if (Number(value) <= 1e16) {
           if (Number(value) >= 3000) {
             changeInput("auctionPeriod", value, true);
           } else {

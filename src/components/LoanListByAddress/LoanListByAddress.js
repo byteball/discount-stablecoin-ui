@@ -21,7 +21,7 @@ export const LoanListByAddress = ({ address }) => {
   const activeParams = useSelector(state => state.aa.activeParams);
   const symbol = useSelector(state => state.aa.symbol);
 
-  const [idCollateral, setIdCollateral] = useState(null);
+  const [loanId, setLoanId] = useState(null);
 
   let list = [];
   for (const fields in walletsInfo) {
@@ -29,7 +29,7 @@ export const LoanListByAddress = ({ address }) => {
       (walletsInfo[fields].amount /
         Math.pow(10, activeParams.decimals) /
         exchange_rate) *
-      1000000000;
+      1e9;
     const percent = Math.ceil(
       (walletsInfo[fields].collateral / min_collateral) * 100
     );
@@ -80,7 +80,7 @@ export const LoanListByAddress = ({ address }) => {
       <LoanFullView
         {...info}
         key={"LoanFullView-" + i}
-        setIdCollateral={setIdCollateral}
+        setLoanId={setLoanId}
         handleClickRepayment={handleClickRepayment}
       />
     ));
@@ -89,7 +89,7 @@ export const LoanListByAddress = ({ address }) => {
       <LoanMobView
         {...info}
         key={"LoanFullView-" + i}
-        setIdCollateral={setIdCollateral}
+        setLoanId={setLoanId}
         handleClickRepayment={handleClickRepayment}
       />
     ));
@@ -105,9 +105,9 @@ export const LoanListByAddress = ({ address }) => {
   return (
     <div>
       <CollateralAddModal
-        visible={!!idCollateral}
-        id={idCollateral}
-        onCancel={() => setIdCollateral(null)}
+        visible={!!loanId}
+        id={loanId}
+        onCancel={() => setLoanId(null)}
       />
       {LoanList && LoanList.length > 0 && width > 768 && (
         <Row className={styles.mobTitle}>

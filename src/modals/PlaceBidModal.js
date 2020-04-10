@@ -27,7 +27,7 @@ export const PlaceBidModal = ({ visible, id, min, onCancel }) => {
     const reg = /^[0-9.]+$/g;
     if (value) {
       if (reg.test(value)) {
-        if (Number(value) <= 10000000000000000) {
+        if (Number(value) <= 1e16) {
           if (Number(value) >= min / 10 ** 9) {
             setLoanBid({
               ...loanBid,

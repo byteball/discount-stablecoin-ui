@@ -118,7 +118,7 @@ export const changeActiveAA = address => async (dispatch, getState) => {
             const amount = Number(coins[id].amount);
 
             const min_collateral =
-              (amount / Math.pow(10, decimals) / exchange_rate) * 1000000000;
+              (amount / Math.pow(10, decimals) / exchange_rate) * 1e9;
 
             const min_collateral_liquidation = Math.round(
               Number(min_collateral) * liquidation_ratio
