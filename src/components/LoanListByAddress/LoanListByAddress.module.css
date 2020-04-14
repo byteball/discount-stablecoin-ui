@@ -1,0 +1,12 @@
+.mobTitle{
+    padding: 10px;
+    font-weight: bold;
+}
+.mobRow{
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+.fullRow{
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}

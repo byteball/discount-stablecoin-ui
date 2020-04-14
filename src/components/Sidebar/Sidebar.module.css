@@ -1,0 +1,27 @@
+.sider {
+    background: #fff;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    align-items: center;
+}
+
+.logo__img {
+    height: 100%;
+    width: 20%;
+    margin-right: 15px;
+}
+
+.brand {
+    color: #000;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.product {
+    font-size: 10px;
+    font-weight: normal;
+}

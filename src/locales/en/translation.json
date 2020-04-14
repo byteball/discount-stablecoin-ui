@@ -1,0 +1,283 @@
+{
+  "pages": {
+    "home": {
+      "title": "Home",
+      "statistic": {
+        "total": "Total stablecoins",
+        "expiration": "Days to expiration",
+        "expirationTime": "Time to expiration"
+      }
+    },
+    "deploy": {
+      "title": "Create",
+      "cancel": {
+        "title": "We are waiting for your deployment request",
+        "subTitle": "After that, you will be redirected to the asset issue page",
+        "button": "Cancel"
+      }
+    },
+    "auction": {
+      "title": "Auctions",
+      "descr": "This is the list of loans whose collateralization ratio dropped below minimum ({{liquidation_ratio}}%) and they are put on auction. The winner of an action becomes the new owner of the loan being auctioned and has an opportunity to pay for it less than its collateral value.",
+      "fields": {
+        "time": "Time until auction ends",
+        "min": "Minimum bid",
+        "total": "Total winner bid",
+        "profit": "Expected profit"
+      },
+      "actions": {
+        "end": "End auction",
+        "bid": "Place a bid"
+      },
+      "empty": "No loans on auction"
+    }
+  },
+  "notifications": {
+    "deploy": {
+      "req": {
+        "title": "Request to deploy a new stablecoin “{{feed_name}} on {{expiry_date}}”",
+        "subTitle": ""
+      },
+      "res": {
+        "title": "New stablecoin “{{feed_name}} on {{expiry_date}}” deployed. Its address is {{address}}",
+        "subTitle": " "
+      }
+    },
+    "seize": {
+      "req": {
+        "title": "New auction bid received"
+      },
+      "res": {
+        "title": "New auction bid applied"
+      }
+    },
+    "end_auction": {
+      "req": {
+        "title": "Request to end an auction"
+      },
+      "res": {
+        "title": "Auction finished"
+      }
+    },
+    "expire": {
+      "req": {
+        "title": "Request to record the exchange rate on the expiration date"
+      },
+      "res": {
+        "title": "Exchange rate on the expiration date was recorded"
+      }
+    },
+    "asset": {
+      "req": {
+        "title": "Request to define asset for stablecoin “{{feed_name}} on {{expiry_date}}”"
+      },
+      "res": {
+        "title": "Asset was defined for stablecoin “{{feed_name}} on {{expiry_date}}”"
+      }
+    },
+    "issueStablecoin" : {
+      "req": {
+        "title": "Request to issue {{count}} stablecoins by {{address}}”"
+      },
+      "res": {
+        "title": "{{count}} stablecoins were issued by {{address}}"
+      }
+    },
+    "addCollateral" : {
+      "req": {
+        "title": "Adding of collateral initiated by {{address}}"
+      },
+      "res": {
+        "title": "Collateral was added"
+      }
+    },
+    "repay" : {
+      "req": {
+        "title": "Loan repayment initiated by {{address}}"
+      },
+      "res": {
+        "title": "{{address}} repaid a loan"
+      }
+    },
+    "regSymbol": {
+      "req": {
+        "title": "Request to register the {{symbol}} symbol"
+      },
+      "res": {
+        "title": "`Symbol {{symbol}} was registered`"
+      }
+    }
+  },
+  "forms": {
+    "deploy": {
+      "fields": {
+        "auctionPeriod" : {
+          "name": "Auction period (seconds)",
+          "descr": "When a loan becomes undercollateralized, it is put up on auction and is sold to the highest bidder. If a bid is not outbid by another bidder during the auction period, the auction ends and the loan is transferred to the winner."
+        },
+        "liquidationRatio" : {
+          "name": "liquidation ratio",
+          "descr": "If the collateralization ratio of a loan drops below this value, the loan will be auctioned and sold to the highest bidder."
+        },
+        "overCollateralizationRatio": {
+          "name": "Overcollateralization ratio",
+          "descr": "Amount of collateral required to issue stablecoins relative to the value of stablecoins. For example, if the value of collateral must be 150% the value of stablecoins to be issued, overcollateralization ratio is 1.5."
+        },
+        "oracle": {
+          "name": "Oracle",
+          "descr": "Address of price oracle that tracks the exchange rate between the target currency (e.g. USD) and the collateral currency (e.g. GBYTE)."
+        },
+        "feedName": {
+          "name": "Feed name",
+          "descr": "Name of the data feed where the oracle posts the exchange rate."
+        },
+        "decimals": {
+          "name": "Decimals",
+          "descr": "Number of decimals used to represent the stablecoin amounts. This number determines the precision of all calculations with the stablecoins. Internally, stablecoin amounts are always represented as integer numbers that are 10^decimals times bigger than displayed amounts."
+        },
+        "maFeedName": {
+          "name": "Moving average feed name",
+          "descr": "Name of the data feed where the oracle posts a moving average of the exchange rate. Moving average is designed to smooth the volatility of the instantaneous exchange rate and prevent premature liquidations."
+        },
+        "maxLoan": {
+          "name": "Max loan value",
+          "descr": "Maximum number of stablecoins that can be borrowed in a single loan. If it is too large, there could be no or few participants who are able to buy the loan from auction should the loan become undercollateralized. Large borrowers can still take several loans."
+        },
+        "expiryDate": {
+          "name": "Expiry date",
+          "descr": "Date when the stablecoin becomes exchangeable for the collateral currency at exchange rate registered on that date. After that date, no more loans will be issued."
+        }
+      },
+      "submit": "Deploy..."
+    },
+    "issueStablecoin": {
+      "title": "Issue stablecoins",
+      "fields": {
+        "count": {
+          "name": "Number of stablecoins"
+        }
+      },
+      "submit": "Send {{newValue}} GB as collateral"
+    },
+    "wallet": {
+      "title": "My loans",
+      "fields": {
+        "selectAddress": {
+          "name": "Select wallet address"
+        }
+      },
+      "submit": "Add wallet",
+      "modal": {
+        "title": "Add new wallet address",
+        "fields": {
+          "address": {
+            "name": "Your wallet address"
+          }
+        },
+        "submits": {
+          "add": {
+            "name": "Add"
+          },
+          "cancel": {
+            "name": "Cancel"
+          }
+        }
+      }
+    },
+    "expired": {
+      "title_rate": "Exchange rate on expiry date",
+      "title_send_expiry": "Record the exchange rate",
+      "description": "After the expiration date, you need to send a request to record the current rate",
+      "submit": "Send"
+    },
+    "error": {
+      "notValid": "{{field}} is not valid",
+      "required": "This field is required",
+      "maxChar": "The maximum number of characters is {{count}}",
+      "minNum": "The minimum value is {{count}}",
+      "maxNum": "The maximum value is {{count}}",
+      "datePassed": "This date has already passed",
+      "muchValue": "You entered too much value"
+    }
+  },
+  "components": {
+    "asset": {
+      "title": "Issuing Asset",
+      "status": {
+        "pending" : {
+          "title": "Stablecoin AA created, now please define its asset",
+          "button": "Define Asset..."
+        }
+      }
+    },
+    "loanListByAddress": {
+      "titles": {
+        "amount": "Stablecoins",
+        "collateral": "Collateral",
+        "actions": "Actions"
+      },
+      "actions": {
+        "collateral": "Add collateral",
+        "repayment": "Repay the loan"
+      },
+      "empty": "No loans"
+    },
+    "paramsView": {
+      "title": "Parameters of the stablecoin",
+      "params": {
+        "auctionPeriod": "Auction period (seconds)",
+        "liquidationRatio": "liquidation ratio",
+        "overCollateralizationRatio": "Overcollateralization ratio",
+        "oracle": "Oracle",
+        "feedName": "Feed name",
+        "decimals": "Decimals",
+        "maFeedName": "Moving average feed name",
+        "maxLoan": "Max loan value",
+        "expiryDate": "Expiry date"
+      }
+    },
+    "selectAA": {
+      "placeholder": "Select a stablecoin",
+      "group": {
+        "recent": "Recent stablecoins",
+        "other": "Other stablecoins",
+        "all": "All stablecoins"
+      }
+    }
+  },
+  "modals": {
+    "collateralAdd": {
+      "title": "Add collateral",
+      "submits": {
+        "add": {
+          "name": "Add"
+        },
+        "cancel": {
+          "name": "Cancel"
+        }
+      },
+      "fields": {
+        "count": {
+          "name": "Amount in GBYTEs"
+        }
+      }
+    },
+    "placeBid": {
+      "title": "Place a bid",
+      "descr": "It is recommended to send slightly more than the minimum to protect against volatility",
+      "submits": {
+        "place": {
+          "name": "Place a bid"
+        },
+        "cancel": {
+          "name": "Cancel"
+        }
+      },
+      "fields": {
+        "count": {
+          "name": "Count byte"
+        }
+      }
+    }
+  }
+}

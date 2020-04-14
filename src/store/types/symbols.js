@@ -1,0 +1,1 @@
+export const ADD_SYMBOLS_TO_LIST = "ADD_SYMBOLS_TO_LIST";
