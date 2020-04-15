@@ -10,7 +10,7 @@ export const IssueAsset = () => {
   const { t } = useTranslation();
   const active = useSelector(state => state.aa.active);
   const dataString = JSON.stringify({ define: 1 });
-  const dataBase64 = base64url(dataString);
+  const dataBase64 = btoa(dataString);
 
   return (
     <Row>

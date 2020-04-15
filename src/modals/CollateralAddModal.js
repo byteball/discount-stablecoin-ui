@@ -65,7 +65,7 @@ export const CollateralAddModal = ({ visible, id, onCancel }) => {
       ev.preventDefault();
     }
     const data = JSON.stringify({ add_collateral: 1, id });
-    const dataBase64 = base64url(data);
+    const dataBase64 = btoa(data);
     redirect(
       `obyte${
         config.TESTNET ? "-tn" : ""

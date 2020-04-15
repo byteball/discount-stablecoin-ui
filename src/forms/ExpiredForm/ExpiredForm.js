@@ -16,7 +16,7 @@ export const ExpiredForm = () => {
   const symbol = useSelector(state => state.aa.symbol);
   const expiry_exchange_rate = activeInfo.expiry_exchange_rate || null;
   const dataString = JSON.stringify({ expire: 1 });
-  const dataBase64 = base64url(dataString);
+  const dataBase64 = btoa(dataString);
 
   return (
     <div style={{ marginBottom: 20 }}>
