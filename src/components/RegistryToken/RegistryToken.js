@@ -147,7 +147,7 @@ export const RegistryToken = () => {
     }
   }
   const dataString = JSON.stringify(data);
-  const dataBase64 = base64url(dataString);
+  const dataBase64 = btoa(dataString);
   const handleSubmit = ev => {
     ev.preventDefault();
     if (wasTaken === null) {
