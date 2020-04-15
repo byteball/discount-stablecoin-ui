@@ -2,8 +2,8 @@ import obyte from "obytenewfork";
 import config from "./config";
 let client;
 try {
-  client = new obyte.Client("wss://obyte.org/bb-test", {
-    testnet: config.testnet,
+  client = new obyte.Client(`wss://obyte.org/bb${config.TESTNET ? "-test" : ""}`, {
+    testnet: config.TESTNET,
     reconnect: true
   });
 } catch (e) {
