@@ -70,7 +70,7 @@ export const CollateralAddModal = ({ visible, id, onCancel }) => {
       `obyte${
         config.TESTNET ? "-tn" : ""
       }:${active}?amount=${loanCollateral.count *
-        10 ** 9}&base64data=${dataBase64}`
+        10 ** 9}&base64data=${encodeURIComponent(dataBase64)}`
     );
     setLoanCollateral(initLoanCollateralState);
     onCancel();

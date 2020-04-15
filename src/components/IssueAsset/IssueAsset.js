@@ -22,7 +22,7 @@ export const IssueAsset = () => {
             className="ant-btn ant-btn-primary"
             href={`obyte${
               config.TESTNET ? "-tn" : ""
-            }:${active}?amount=10000&base64data=${dataBase64}`}
+            }:${active}?amount=10000&base64data=${encodeURIComponent(dataBase64)}`}
           >
             {t("components.asset.status.pending.button")}
           </a>

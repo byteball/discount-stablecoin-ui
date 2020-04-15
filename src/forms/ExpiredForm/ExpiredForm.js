@@ -40,7 +40,7 @@ export const ExpiredForm = () => {
             className="ant-btn ant-btn-primary"
             href={`obyte${
               config.TESTNET ? "-tn" : ""
-            }:${active}?amount=10000&base64data=${dataBase64}`}
+            }:${active}?amount=10000&base64data=${encodeURIComponent(dataBase64)}`}
           >
             {t("forms.expired.submit")}
           </a>

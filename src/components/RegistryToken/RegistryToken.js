@@ -258,7 +258,7 @@ export const RegistryToken = () => {
                   href={`obyte${config.TESTNET ? "-tn" : ""}:${
                     config.TOKEN_REGISTRY_AA_ADDRESS
                   }?amount=${tokenSupport.value *
-                    10 ** 9}&base64data=${dataBase64}`}
+                    10 ** 9}&base64data=${encodeURIComponent(dataBase64)}`}
                 >
                   {wasTaken
                     ? (symbol && symbol === token.value && "Add support") ||
