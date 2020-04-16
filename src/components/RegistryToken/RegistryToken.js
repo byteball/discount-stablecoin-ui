@@ -8,7 +8,6 @@ import {
   tokenRegistryClose
 } from "../../store/actions/deploy";
 import config from "../../config";
-import base64url from "base64url";
 
 const { Title } = Typography;
 
@@ -30,17 +29,29 @@ export const RegistryToken = () => {
   //   value: initToken,
   //   valid: true
   // });
+  const feedNameSplit = feed_name.split("_");
+  let tokenPegged;
+  if (feedNameSplit.length > 1) {
+    tokenPegged = feedNameSplit[feedNameSplit.length - 1]
+  }
   const [token, setToken] = useState(null);
   const [descr, setDescr] = useState({
-    value: `USD-pegged stablecoin expiring on ${expiry_date}`,
+    value: `${tokenPegged ? tokenPegged + "-pegged stablecoin": "Stablecoin"} expiring on ${expiry_date}`,
     valid: true
   });
+
   useEffect(() => {
+    const feedNameSplit = feed_name.split("_");
+    let tokenPegged;
+    if (feedNameSplit.length > 1) {
+      tokenPegged = feedNameSplit[feedNameSplit.length - 1]
+    }
     setDescr({
-      value: `USD-pegged stablecoin expiring on ${expiry_date}`,
+      value: `${tokenPegged ? tokenPegged + "-pegged stablecoin": "Stablecoin"} expiring on ${expiry_date}`,
       valid: true
     });
-  }, [active, expiry_date]);
+  }, [active, expiry_date, feed_name]);
+
   useEffect(() => {
     dispatch(clearCheckToken());
     let initToken;

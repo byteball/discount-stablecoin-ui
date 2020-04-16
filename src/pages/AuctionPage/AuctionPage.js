@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 
 import { Layout } from "../../components/Layout/Layout";
 import { SelectAA } from "../../components/SelectAA/SelectAA";
-import base64url from "base64url";
 import { PlaceBidModal } from "../../modals/PlaceBidModal";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import i18n from "../../i18n";
