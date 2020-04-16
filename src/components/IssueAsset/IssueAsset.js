@@ -1,7 +1,6 @@
 import React from "react";
 import { Row, Result, Icon } from "antd";
 import { useSelector } from "react-redux";
-import base64url from "base64url";
 import { useTranslation } from "react-i18next";
 
 import config from "../../config";

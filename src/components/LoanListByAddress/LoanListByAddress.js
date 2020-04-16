@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Row, Col, Empty } from "antd";
-import base64url from "base64url";
 import { useSelector } from "react-redux";
 
 import { CollateralAddModal } from "../../modals/CollateralAddModal";

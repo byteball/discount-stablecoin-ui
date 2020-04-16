@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, Form, Input, Modal } from "antd";
-import base64url from "base64url";
 import { useSelector } from "react-redux";
 
 import { redirect, t } from "../utils";
