@@ -16,7 +16,7 @@ export const ExpiredForm = () => {
   const symbol = useSelector(state => state.aa.symbol);
   const expiry_exchange_rate = activeInfo.expiry_exchange_rate || null;
   const dataString = JSON.stringify({ expire: 1 });
-  const dataBase64 = base64url(dataString);
+  const dataBase64 = btoa(dataString);
 
   return (
     <div style={{ marginBottom: 20 }}>
@@ -40,7 +40,7 @@ export const ExpiredForm = () => {
             className="ant-btn ant-btn-primary"
             href={`obyte${
               config.TESTNET ? "-tn" : ""
-            }:${active}?amount=10000&base64data=${dataBase64}`}
+            }:${active}?amount=10000&base64data=${encodeURIComponent(dataBase64)}`}
           >
             {t("forms.expired.submit")}
           </a>

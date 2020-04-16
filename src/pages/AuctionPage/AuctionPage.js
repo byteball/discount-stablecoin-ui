@@ -47,7 +47,7 @@ export const AuctionPage = props => {
         bid -
         Math.ceil(((1e9 / exchange_rate) * amount) / 10 ** decimals);
       const data = JSON.stringify({ end_auction: 1, id });
-      const dataBase64 = base64url(data);
+      const dataBase64 = btoa(data);
       coinsAtAuction.push({
         id,
         ...coins[id],

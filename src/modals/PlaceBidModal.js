@@ -71,10 +71,10 @@ export const PlaceBidModal = ({ visible, id, min, onCancel }) => {
       ev.preventDefault();
     }
     const data = JSON.stringify({ seize: 1, id });
-    const dataBase64 = base64url(data);
+    const dataBase64 = btoa(data);
     redirect(
       `obyte${config.TESTNET ? "-tn" : ""}:${active}?amount=${loanBid.count *
-        10 ** 9}&base64data=${dataBase64}`
+        10 ** 9}&base64data=${encodeURIComponent(dataBase64)}`
     );
     setLoanBid(initLoanBidState);
     onCancel();

@@ -225,8 +225,8 @@ export const ParamsView = ({ panelActive, setPanelActive }) => {
           <div>
             {aaActive && (
               <a
-                href={`https://${config.TESTNET &&
-                  "testnet"}explorer.obyte.org/#${aaActive}`}
+                href={`https://${config.TESTNET ?
+                  "testnet" : ""}explorer.obyte.org/#${aaActive}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

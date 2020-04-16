@@ -63,7 +63,7 @@ export const LoanListByAddress = ({ address }) => {
 
   const handleClickRepayment = (id, amount) => {
     const data = JSON.stringify({ repay: 1, id });
-    const dataBase64 = base64url(data);
+    const dataBase64 = btoa(data);
 
     if (activeInfo && "asset" in activeInfo) {
       redirect(
@@ -71,7 +71,7 @@ export const LoanListByAddress = ({ address }) => {
           config.TESTNET ? "-tn" : ""
         }:${active}?amount=${amount}&asset=${encodeURIComponent(
           activeInfo.asset
-        )}&base64data=${dataBase64}`
+        )}&base64data=${encodeURIComponent(dataBase64)}`
       );
     }
   };

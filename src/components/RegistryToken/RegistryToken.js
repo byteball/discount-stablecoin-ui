@@ -147,7 +147,7 @@ export const RegistryToken = () => {
     }
   }
   const dataString = JSON.stringify(data);
-  const dataBase64 = base64url(dataString);
+  const dataBase64 = btoa(dataString);
   const handleSubmit = ev => {
     ev.preventDefault();
     if (wasTaken === null) {
@@ -258,7 +258,7 @@ export const RegistryToken = () => {
                   href={`obyte${config.TESTNET ? "-tn" : ""}:${
                     config.TOKEN_REGISTRY_AA_ADDRESS
                   }?amount=${tokenSupport.value *
-                    10 ** 9}&base64data=${dataBase64}`}
+                    10 ** 9}&base64data=${encodeURIComponent(dataBase64)}`}
                 >
                   {wasTaken
                     ? (symbol && symbol === token.value && "Add support") ||
