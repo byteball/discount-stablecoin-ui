@@ -1,7 +1,7 @@
 import React from "react";
 import { Router, Route } from "react-router-dom";
 
-import { HomePage, DeployPage, AuctionPage, SearchPage } from "./pages";
+import { HomePage, DeployPage, AuctionPage, SearchPage, AboutPage } from "./pages";
 
 import history from "./history";
 
@@ -19,6 +19,9 @@ const AppRouter = () => {
       </Route>
       <Route path="/search">
         <SearchPage />
+      </Route>
+      <Route path="/about">
+        <AboutPage />
       </Route>
     </Router>
   );

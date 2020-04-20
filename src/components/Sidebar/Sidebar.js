@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, Menu, Icon } from "antd";
-import { NavLink } from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import styles from "../Sidebar/Sidebar.module.css";
 import i18n from "../../i18n";
@@ -33,16 +33,24 @@ export const Sidebar = ({ active }) => {
       icon: "plus-circle",
       title: t("pages.deploy.title"),
       path: "/deploy"
-    }
+    },
+    {
+      key: "about",
+      icon: "info-circle",
+      title: "About",
+      path: "/about"
+    },
   ];
   return (
     <Sider breakpoint="lg" collapsedWidth="0" className={styles.sider}>
-      <div className={styles.logo}>
-        <img src="/logo.png" className={styles.logo__img} alt="Obyte" />
-        <div className={styles.brand}>
-          Obyte <div className={styles.product}>Stablecoin</div>
+      <Link to="/">
+        <div className={styles.logo}>
+          <img src="/logo.png" className={styles.logo__img} alt="Obyte" />
+          <div className={styles.brand}>
+            Obyte <div className={styles.product}>Stablecoin</div>
+          </div>
         </div>
-      </div>
+      </Link>
       <Menu theme="light" defaultSelectedKeys={[active]}>
         {dataMenu.map(item => {
           return (
