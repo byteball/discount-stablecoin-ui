@@ -3,7 +3,6 @@ import { Statistic, Typography } from "antd";
 import { useSelector } from "react-redux";
 
 import config from "../../config";
-import base64url from "base64url";
 import { t } from "../../utils";
 import { ExchangeStablecoinForm } from "../ExchangeStablecoinForm/ExchangeStablecoinForm";
 import { LinkToODEX } from "../../components/LinkToODEX/LinkToODEX";
