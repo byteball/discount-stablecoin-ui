@@ -228,7 +228,7 @@ export const ParamsView = ({ panelActive, setPanelActive }) => {
                 href={`https://${config.TESTNET ?
                   "testnet" : ""}explorer.obyte.org/#${aaActive}`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
               >
                 View on explorer
               </a>

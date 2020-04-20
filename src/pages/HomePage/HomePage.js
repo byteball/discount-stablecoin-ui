@@ -65,7 +65,7 @@ export const HomePage = props => {
         <Row style={{ fontSize: 18 }}>
           <Col xs={{ span: 24 }} lg={{ span: 16 }} xl={{ span: 12 }}>
             <p>
-              Issue and redeem <a href="https://medium.com/obyte/introducing-discount-stablecoins-6e7b5e9a8fd6" target="_blank" rel="noopener  noreferrer">discount stablecoins</a>. Or define a new stablecoin
+              Issue and redeem <a href="https://medium.com/obyte/introducing-discount-stablecoins-6e7b5e9a8fd6" target="_blank" rel="noopener">discount stablecoins</a>. Or define a new stablecoin
               linked to an asset of your choice.
             </p>
             <p>
