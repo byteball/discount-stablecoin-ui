@@ -33,7 +33,13 @@ export const Sidebar = ({ active }) => {
       icon: "plus-circle",
       title: t("pages.deploy.title"),
       path: "/deploy"
-    }
+    },
+    {
+      key: "about",
+      icon: "info-circle",
+      title: "About",
+      path: "/about"
+    },
   ];
   return (
     <Sider breakpoint="lg" collapsedWidth="0" className={styles.sider}>
