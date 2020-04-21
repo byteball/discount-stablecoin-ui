@@ -106,6 +106,7 @@ export const LoanListByAddress = ({ address }) => {
       <CollateralAddModal
         visible={!!loanId}
         id={loanId}
+        address={address}
         onCancel={() => setLoanId(null)}
       />
       {LoanList && LoanList.length > 0 && width > 768 && (
