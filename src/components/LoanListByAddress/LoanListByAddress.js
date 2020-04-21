@@ -70,7 +70,7 @@ export const LoanListByAddress = ({ address }) => {
           config.TESTNET ? "-tn" : ""
         }:${active}?amount=${amount}&asset=${encodeURIComponent(
           activeInfo.asset
-        )}&base64data=${encodeURIComponent(dataBase64)}`
+        )}&base64data=${encodeURIComponent(dataBase64)}&from_address=${address}`
       );
     }
   };
@@ -106,6 +106,7 @@ export const LoanListByAddress = ({ address }) => {
       <CollateralAddModal
         visible={!!loanId}
         id={loanId}
+        address={address}
         onCancel={() => setLoanId(null)}
       />
       {LoanList && LoanList.length > 0 && width > 768 && (
