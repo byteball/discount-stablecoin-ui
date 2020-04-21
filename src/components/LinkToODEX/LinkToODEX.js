@@ -6,7 +6,7 @@ export const LinkToODEX = ({ symbol, ...rest }) => {
     return (
       <a
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener"
         {...rest}
         href={config.LINK_TO_ODEX + "GBYTE/" + symbol}
       >
