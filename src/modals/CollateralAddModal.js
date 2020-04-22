@@ -12,7 +12,7 @@ const initLoanCollateralState = {
   valid: false
 };
 
-export const CollateralAddModal = ({ visible, id, onCancel }) => {
+export const CollateralAddModal = ({ visible, id, onCancel, address }) => {
   const [loanCollateral, setLoanCollateral] = useState(initLoanCollateralState);
   const active = useSelector(state => state.aa.active);
   const handleChangeCollateralCount = ev => {
@@ -69,7 +69,7 @@ export const CollateralAddModal = ({ visible, id, onCancel }) => {
       `obyte${
         config.TESTNET ? "-tn" : ""
       }:${active}?amount=${loanCollateral.count *
-        10 ** 9}&base64data=${encodeURIComponent(dataBase64)}`
+        10 ** 9}&base64data=${encodeURIComponent(dataBase64)}&from_address=${address}`
     );
     setLoanCollateral(initLoanCollateralState);
     onCancel();
