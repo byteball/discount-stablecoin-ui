@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { message, Result, Spin } from "antd";
-import obyte from "obytenewfork";
+import obyte from "obyte";
 import {
   changeActiveAA,
   watchRequestAas,

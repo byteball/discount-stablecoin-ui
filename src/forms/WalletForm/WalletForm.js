@@ -10,7 +10,7 @@ import {
   Typography,
   Divider
 } from "antd";
-import obyte from "obytenewfork";
+import obyte from "obyte";
 
 import { t } from "../../utils";
 import { useLocalStorage } from "../../hooks/useLocalStorage";

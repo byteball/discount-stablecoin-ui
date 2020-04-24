@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import obyte from "obytenewfork";
+import obyte from "obyte";
 import ReactGA from "react-ga";
 import { trim } from "lodash";
 import { Form, Input, Button, Row, Col, DatePicker } from "antd";
