@@ -6,6 +6,7 @@ import { t } from "../../utils";
 
 import config from "../../config";
 import { LinkToODEX } from "../../components/LinkToODEX/LinkToODEX";
+import ReactGA from "react-ga";
 
 const { Title } = Typography;
 
@@ -55,6 +56,13 @@ export const IssueStablecoinForm = () => {
           href={url}
           className="ant-btn ant-btn-primary"
           ref={issueBtn}
+          onClick={()=>{
+            ReactGA.event({
+              category: 'Stablecoin',
+              action: 'Issue stablecoin',
+              label: 'before the expiration date'
+            });
+          }}
           disabled={count === ""}
         >
           {t("forms.issueStablecoin.submit", {

@@ -10,6 +10,7 @@ import { redirect, t } from "../../utils";
 
 import styles from "./LoanListByAddress.module.css";
 import { truncate } from "lodash";
+import ReactGA from "react-ga";
 
 export const LoanListByAddress = ({ address }) => {
   const [width] = useWindowSize();
@@ -63,7 +64,11 @@ export const LoanListByAddress = ({ address }) => {
   const handleClickRepayment = (id, amount) => {
     const data = JSON.stringify({ repay: 1, id });
     const dataBase64 = btoa(data);
-
+    ReactGA.event({
+      category: 'Stablecoin',
+      action: 'Exchange stablecoin for GBYTEs',
+      label: 'before the expiration date (Repay the loan)',
+    });
     if (activeInfo && "asset" in activeInfo) {
       redirect(
         `obyte${

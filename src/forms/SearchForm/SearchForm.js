@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import obyte from "obytenewfork";
+import obyte from "obyte";
 import { trim } from "lodash";
 import { Form, Input, Button, Row, Col, Switch } from "antd";
 
