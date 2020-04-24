@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import { useSelector } from "react-redux";
 import { Row, Col, Empty } from "antd";
 import { useTranslation } from "react-i18next";
@@ -11,14 +11,8 @@ import i18n from "../../i18n";
 import { AuctionFull } from "./view/AuctionFull";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { AuctionMob } from "./view/AuctionMob";
-import ReactGA from "react-ga";
 
 export const AuctionPage = props => {
-
-  useEffect(()=>{
-    ReactGA.pageview("/auction");
-  },[])
-
   const { t } = useTranslation("", { i18n });
   const coins = useSelector(state => state.auction.coins);
   const active = useSelector(state => state.aa.active);

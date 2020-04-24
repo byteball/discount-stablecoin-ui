@@ -1,15 +1,8 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {Layout} from "../../components/Layout/Layout";
 import {Col, Row} from "antd";
-import ReactGA from 'react-ga';
 
-export const AboutPage = ()=> {
-
-	useEffect(()=>{
-		ReactGA.pageview("/about");
-	},[])
-
-	return (<Layout title="About" page="about">
+export const AboutPage = ()=> <Layout title="About" page="about">
 		<Row style={{ fontSize: 18 }}>
 			<Col xs={{ span: 24 }} lg={{ span: 16 }} xl={{ span: 12 }}>
 				<p>This website allows you to:</p>
@@ -42,5 +35,4 @@ export const AboutPage = ()=> {
 				</p>
 			</Col>
 		</Row>
-	</Layout>)
-}
+	</Layout>
