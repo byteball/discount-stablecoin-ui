@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Result, Icon, Button } from "antd";
 
@@ -7,8 +7,14 @@ import { DeployForm } from "../../forms";
 
 import { cancelPendingDeployRequest } from "../../store/actions/deploy";
 import { useTranslation } from "react-i18next";
+import ReactGA from "react-ga";
 
 export const DeployPage = props => {
+
+  useEffect(()=>{
+    ReactGA.pageview("/deploy");
+  },[])
+
   const { t } = useTranslation();
   const pending = useSelector(state => state.deploy.pending);
   const dispatch = useDispatch();
