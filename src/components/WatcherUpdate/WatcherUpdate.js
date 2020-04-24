@@ -34,6 +34,7 @@ export const WatcherUpdate = props => {
         ReactGA.pageview(history.location.pathname);
       }
     });
+    ReactGA.pageview(history.location.pathname);
     return () => {
       unlisten();
     };
