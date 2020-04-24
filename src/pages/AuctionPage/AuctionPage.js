@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Row, Col, Empty } from "antd";
 import { useTranslation } from "react-i18next";

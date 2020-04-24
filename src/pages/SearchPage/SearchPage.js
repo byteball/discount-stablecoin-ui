@@ -10,7 +10,6 @@ import { aasTotalCoin } from "../../store/actions/aa/aasTotalCoin";
 import moment from "moment";
 import { changeActiveAA } from "../../store/actions/aa";
 import styles from "./SearchPage.module.css";
-
 export const SearchPage = props => {
   const listByBase = useSelector(state => state.aa.listByBase);
   const listByBaseLoaded = useSelector(state => state.aa.listByBaseLoaded);

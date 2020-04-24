@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { truncate } from "lodash";
 import moment from "moment";
@@ -12,6 +12,7 @@ import { IssueAsset } from "../../components/IssueAsset/IssueAsset";
 import { ExpiredForm } from "../../forms/ExpiredForm/ExpiredForm";
 import { changeExpiryStatus } from "../../store/actions/aa";
 import { RegistryToken } from "../../components/RegistryToken/RegistryToken";
+
 const { Countdown } = Statistic;
 
 export const HomePage = props => {
