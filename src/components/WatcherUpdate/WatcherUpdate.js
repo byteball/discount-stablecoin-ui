@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { message, Result, Spin } from "antd";
-import obyte from "obytenewfork";
+import ReactGA from "react-ga";
+import obyte from "obyte";
 import {
   changeActiveAA,
   watchRequestAas,
@@ -30,8 +31,10 @@ export const WatcherUpdate = props => {
         if (aaActive) {
           history.replace({ ...location.pathname, hash: `#${aaActive}` });
         }
+        ReactGA.pageview(history.location.pathname);
       }
     });
+    ReactGA.pageview(history.location.pathname);
     return () => {
       unlisten();
     };

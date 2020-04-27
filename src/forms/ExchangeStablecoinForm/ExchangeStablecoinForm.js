@@ -3,6 +3,7 @@ import { Form, Input } from "antd";
 import { useSelector } from "react-redux";
 import config from "../../config";
 import { truncate } from "lodash";
+import ReactGA from "react-ga";
 
 export const ExchangeStablecoinForm = () => {
   const [countStable, setCountStable] = useState("");
@@ -77,6 +78,13 @@ export const ExchangeStablecoinForm = () => {
             href={urlStable}
             className="ant-btn ant-btn-primary ant-btn-lg"
             ref={issueBtnStable}
+            onClick={()=>{
+              ReactGA.event({
+                category: 'Stablecoin',
+                action: 'Exchange stablecoin for GBYTEs',
+                label: 'after the expiration date',
+              });
+            }}
             disabled={countStable === "" || Number(countStable) === 0}
           >
             Exchange for GBYTEs
@@ -112,6 +120,13 @@ export const ExchangeStablecoinForm = () => {
             href={urlGbyte}
             className="ant-btn ant-btn-primary ant-btn-lg"
             ref={issueBtnGbyte}
+            onClick={()=>{
+              ReactGA.event({
+                category: 'Stablecoin',
+                action: 'Issue stablecoin',
+                label: 'after the expiration date',
+              });
+            }}
             disabled={countGbyte === "" || Number(countGbyte) === 0}
           >
             Exchange for{" "}

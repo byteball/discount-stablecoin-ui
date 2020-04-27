@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import obyte from "obytenewfork";
+import obyte from "obyte";
+import ReactGA from "react-ga";
 import { trim } from "lodash";
 import { Form, Input, Button, Row, Col, DatePicker } from "antd";
 import moment from "moment";
@@ -251,6 +252,10 @@ export const DeployForm = ({ params }) => {
   };
   const handleSummit = ev => {
     ev.preventDefault();
+    ReactGA.event({
+      category: 'Deploy',
+      action: 'Create stablecoin',
+    });
     const url = `obyte${
       config.TESTNET ? "-tn" : ""
       }:data?app=definition&definition=${encodeURIComponent(AA)}`;
