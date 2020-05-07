@@ -58,7 +58,7 @@ export const Faq = () => {
 							<li><a target="_blank" href="https://odex.ooo/">ODEX decentralized exchange</a>: stable vs GBYTE, stable
 								vs stable;
 							</li>
-							<li><a target="_blank" rel="noopener" href="https://odex.ooo/">Oswap automated market maker</a>: stable vs
+							<li><a target="_blank" rel="noopener" href="https://oswap.io/">Oswap automated market maker</a> (coming soon): stable vs
 								GBYTE, stable vs stable;
 							</li>
 							<li><a target="_blank" rel="noopener" href="https://cryptox.pl/">Cryptox centralized exchange</a>:
