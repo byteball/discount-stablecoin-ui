@@ -1,0 +1,216 @@
+.title {
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 100px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.itemCase {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    flex-direction: row;
+}
+
+.itemCaseReverse {
+    composes: itemCase;
+}
+
+.caseInfo {
+    width: 50%;
+    font-size: 18px;
+}
+
+.caseTitle {
+    font-weight: bold;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.caseSubTitle {
+    padding-top: 10px;
+    line-height: 25px;
+    font-style: italic;
+}
+
+.road ul {
+    list-style-type: none;
+    padding-left: 10px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.road ul::before {
+    content: "";
+    width: 3px;
+    background-color: #ff8c00;
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    height: calc(100% + 10px);
+}
+
+.road li {
+    padding-left: 20px;
+    line-height: 25px;
+    margin-bottom: 10px;
+}
+
+.road li::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-color: #ff8c00;
+    position: absolute;
+    display: block;
+    left: 4px;
+    margin-top: 4px;
+    border-radius: 50%;
+}
+
+.road li:first-child {
+    padding-top: -5px;
+}
+
+.road li:first-child::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-color: #ff8c00;
+    position: absolute;
+    display: block;
+    left: 4px;
+    border-radius: 50%;
+}
+
+.roadBlue::before {
+    background-color: #0037ff !important;
+}
+
+.roadBlue li::before {
+    background-color: #0037ff;
+}
+
+
+.roadBlue li:first-child::before {
+    background-color: #0037ff;
+}
+
+.roadYellow::before {
+    background-color: #fdcd38 !important;
+}
+
+.roadYellow li::before {
+    background-color: #fdcd38;
+}
+
+
+.roadYellow li:first-child::before {
+    background-color: #fdcd38;
+}
+
+.descr {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 25px;
+}
+
+.descr a {
+    color: rgba(0, 0, 0, 0.65);
+    text-decoration: underline;
+}
+
+.caseLink a {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-decoration: underline;
+}
+
+.caseLinkOrange a {
+    color: #ff8c00;
+}
+
+.caseLinkYellow a {
+    color: #fdcd38;
+}
+
+.caseLinkBlue a {
+    color: #0037ff;
+}
+
+.image {
+    width: 50%;
+}
+
+.image svg {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.image1 {
+    max-width: 352px;
+    margin: 0 auto;
+}
+
+.image2 {
+    max-width: 600px;
+}
+
+.image3 {
+    max-width: 625px;
+}
+
+@media (max-width: 1200px) {
+    .road {
+        margin-top: 40px;
+    }
+
+    .image1 {
+        max-width: 182px;
+
+    }
+
+    .image2 {
+        max-width: 300px;
+    }
+
+    .image3 {
+        max-width: 325px;
+    }
+
+}
+
+@media (max-width: 780px) {
+
+    .image {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .caseInfo {
+        width: 100%;
+    }
+
+    .image1 {
+        order: 1;
+    }
+
+    .itemCase {
+        flex-direction: column;
+    }
+
+    .itemCaseReverse {
+        flex-direction: column-reverse;
+    }
+}
