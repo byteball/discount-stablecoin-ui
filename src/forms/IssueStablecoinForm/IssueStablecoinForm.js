@@ -38,7 +38,7 @@ export const IssueStablecoinForm = () => {
 
   const url = `obyte${
     config.TESTNET ? "-tn" : ""
-  }:${active}?amount=${newValue}&amp;asset=base`;
+  }:${active}?amount=${newValue}&asset=base`;
 
   return (
     <Form onSubmit={handleSubmit}>

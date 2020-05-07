@@ -246,7 +246,7 @@ export const SearchPage = props => {
             return {
               onClick: event => {
                 dispatch(changeActiveAA(record.address));
-                history.push("/");
+                history.push("/app");
               }
             };
           }}
@@ -261,7 +261,7 @@ export const SearchPage = props => {
                 className={styles.viewRow}
                 onClick={() => {
                   dispatch(changeActiveAA(aa.address));
-                  history.push("/");
+                  history.push("/app");
                 }}
               >
                 <div>

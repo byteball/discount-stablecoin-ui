@@ -66,7 +66,7 @@ export const deployRequest = address => async (dispatch, getState) => {
       payload: address
     });
   }
-  history.push("/");
+  history.push("/app");
 };
 
 export const cancelPendingDeployRequest = () => ({

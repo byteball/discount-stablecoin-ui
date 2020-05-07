@@ -11,9 +11,9 @@ export const Sidebar = ({ active }) => {
   const { t } = useTranslation("", { i18n });
   const dataMenu = [
     {
-      key: "home",
+      key: "main",
       icon: "home",
-      title: t("pages.home.title"),
+      title: "Main",
       path: "/"
     },
     {
@@ -55,7 +55,7 @@ export const Sidebar = ({ active }) => {
         {dataMenu.map(item => {
           return (
             <Menu.Item key={item.key}>
-              <NavLink to={item.path} activeClassName="selected">
+              <NavLink to={`/app${item.path}`} activeClassName="selected">
                 <Icon type={item.icon} />
                 <span className="nav-text">{item.title}</span>
               </NavLink>
