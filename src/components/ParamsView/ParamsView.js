@@ -212,7 +212,7 @@ export const ParamsView = ({ panelActive, setPanelActive }) => {
                 style={{ padding: 0 }}
                 onClick={() => {
                   dispatch(tokenRegistrySwitch(true));
-                  history.push("/");
+                  history.push("/app");
                   setPanelActive(null);
                 }}
               >

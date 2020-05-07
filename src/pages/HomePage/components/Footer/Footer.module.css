@@ -1,0 +1,18 @@
+.footer {
+    padding-bottom: 20px;
+    font-size: 16px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #0037ff;
+    white-space: pre-line;
+}
+
+.discord {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 18px;
+    line-height: 25px;
+}
