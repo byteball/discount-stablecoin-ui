@@ -43,10 +43,10 @@ export const UseCase = () => (
 								}}>Cryptox exchange</a>.
 							</div>
 							<div className={`${styles.caseLink} ${styles.caseLinkOrange}`}>
-								<a target="_blank" rel="noopener" href="/app" onClick={()=>{
+								<a target="_blank" rel="noopener" href="https://cryptox.pl/" onClick={()=>{
 									ReactGA.event({
 										category: 'Home page',
-										action: 'Go to the app',
+										action: 'Go to cryptox',
 										label: 'case 1'
 									});
 								}}>Start trading</a>
@@ -93,7 +93,7 @@ export const UseCase = () => (
 									ODEX decentralized exchange
 								</a> and {" "}
 								<a target="_blank" rel="noopener"
-								   href="https://www.oswap.io/"
+								   href="https://oswap.io/"
 								   onClick={()=>{
 									   ReactGA.event({
 										   category: 'Home page',
@@ -103,7 +103,7 @@ export const UseCase = () => (
 								   }}
 								>
 									Oswap automated market maker
-								</a>.
+								</a> (coming soon).
 							</div>
 							<div className={`${styles.caseLink} ${styles.caseLinkYellow}`}>
 								<a target="_blank" rel="noopener" href="/app" onClick={()=>{
@@ -143,7 +143,7 @@ export const UseCase = () => (
 							<div className={styles.descr}>
 								Various stablecoins are traded on{" "}
 								<a target="_blank" rel="noopener"
-								   href="https://odex.ooo/GBYTE/BTC_20200701"
+								   href="https://odex.ooo"
 								   onClick={()=>{
 									   ReactGA.event({
 										   category: 'Home page',
@@ -155,7 +155,7 @@ export const UseCase = () => (
 								ODEX decentralized exchange
 							</a> and {" "}<a
 								target="_blank" rel="noopener"
-								href="https://www.oswap.io/" onClick={()=>{
+								href="https://oswap.io/" onClick={()=>{
 									ReactGA.event({
 										category: 'Home page',
 										action: 'Go to oswap',
@@ -164,7 +164,7 @@ export const UseCase = () => (
 								}}
 							>
 								Oswap automated market maker
-							</a>.
+							</a> (coming soon).
 							</div>
 							<div className={`${styles.caseLink} ${styles.caseLinkBlue}`}>
 								<a target="_blank" rel="noopener" href="/app" onClick={()=>{
