@@ -2,6 +2,7 @@ import React from "react";
 import {Collapse, Icon} from "antd";
 import MainStyles from "../../Home.module.css";
 import styles from "./Faq.module.css"
+import ReactGA from "react-ga";
 
 const {Panel} = Collapse;
 export const Faq = () => {
@@ -28,12 +29,28 @@ export const Faq = () => {
 					</Panel>
 					<Panel header="How do I get stablecoins?" key="2" className={styles.panel}>
 						<p>
-							Depending on your investment strategy, buy them on an exchange or <a href="/app/" target="_blank">issue</a> new stablecoins on this website.
+							Depending on your investment strategy, buy them on an exchange or{" "}
+							<a href="/app/" target="_blank" onClick={()=>{
+								ReactGA.event({
+									category: 'Home page',
+									action: 'Go to the app',
+									label: 'faq'
+								});
+							}}>issue</a>{" "}
+							new stablecoins on this website.
 						</p>
 					</Panel>
 					<Panel header="How are stablecoins issued?" key="3" className={styles.panel}>
 						<p>
-							Stablecoins are <a href="/app/" target="_blank">issued</a> as debt against GBYTE collateral when a trader borrows them on this website. The
+							Stablecoins are{" "}
+							<a href="/app/" target="_blank" onClick={()=>{
+								ReactGA.event({
+									category: 'Home page',
+									action: 'Go to the app',
+									label: 'faq'
+								});
+							}}>issued</a>{" "}
+							as debt against GBYTE collateral when a trader borrows them on this website. The
 							collateral is larger than the value of the stablecoins issued (usually 150%) to ensure that the debt is
 							properly secured.
 						</p>
@@ -47,7 +64,14 @@ export const Faq = () => {
 					</Panel>
 					<Panel header="How do I sell/redeem stablecoins?" key="5" className={styles.panel}>
 						<p>
-							Sell them on an exchange or, if you hold a loan, <a href="/app/" target="_blank">repay it on this website</a>.
+							Sell them on an exchange or, if you hold a loan,{" "}
+							<a href="/app/" target="_blank" onClick={()=>{
+								ReactGA.event({
+									category: 'Home page',
+									action: 'Go to the app',
+									label: 'faq'
+								});
+							}}>repay it on this website</a>.
 						</p>
 					</Panel>
 					<Panel header="Where are stablecoins traded?" key="6" className={styles.panel}>
@@ -55,14 +79,39 @@ export const Faq = () => {
 							Stablecoins are traded on:
 						</p>
 						<ul>
-							<li><a target="_blank" rel="noopener" href="https://odex.ooo/">ODEX decentralized exchange</a>: stable vs GBYTE, stable
-								vs stable;
+							<li>
+								<a target="_blank" rel="noopener" href="https://odex.ooo/" onClick={()=>{
+									ReactGA.event({
+										category: 'Home page',
+										action: 'Go to odex',
+										label: 'faq'
+									});
+								}}>
+									ODEX decentralized exchange
+								</a>: stable vs GBYTE, stable vs stable;
 							</li>
-							<li><a target="_blank" rel="noopener" href="https://oswap.io/">Oswap automated market maker</a> (coming soon): stable vs
-								GBYTE, stable vs stable;
+							<li>
+								<a target="_blank" rel="noopener" href="https://oswap.io/" onClick={()=>{
+									ReactGA.event({
+										category: 'Home page',
+										action: 'Go to oswap',
+										label: 'faq'
+									});
+							}}>
+									Oswap automated market maker
+								</a> (coming soon): stable vs GBYTE, stable vs stable;
 							</li>
-							<li><a target="_blank" rel="noopener" href="https://cryptox.pl/">Cryptox centralized exchange</a>:
-								BTC-pegged stablecoin vs BTC.
+							<li>
+								<a target="_blank" rel="noopener" href="https://cryptox.pl/" onClick={()=>{
+									ReactGA.event({
+										category: 'Home page',
+										action: 'Go to cryptox',
+										label: 'faq'
+									});
+								}}>
+									Cryptox centralized exchange
+								</a>
+								: BTC-pegged stablecoin vs BTC.
 							</li>
 						</ul>
 					</Panel>
@@ -93,11 +142,17 @@ export const Faq = () => {
 					<Panel header="What happens if I don’t sell stablecoins before the expiry date?" key="9"
 								 className={styles.panel}>
 						<p>
-							You can still <a href="/app/" target="_blank">sell them on this website</a> but the exchange rate vs GBYTE is as it was on the expiry date.
-							That
-							is, your stablecoins stop being stable relative to their original benchmark (USD, BTC, …) and become
-							stable relative
-							to GBYTE.
+							You can still{" "}
+							<a href="/app/" target="_blank" onClick={()=>{
+								ReactGA.event({
+									category: 'Home page',
+									action: 'Go to the app',
+									label: 'faq'
+								});
+							}}>sell them on this website</a>{" "}
+							but the exchange rate vs GBYTE is as it was on the expiry date.
+							That is, your stablecoins stop being stable relative to their original benchmark (USD, BTC, …) and become
+							stable relative to GBYTE.
 						</p>
 					</Panel>
 					<Panel header="What are the risks?" key="10" className={styles.panel}>
@@ -141,7 +196,15 @@ export const Faq = () => {
 							trading fees.</p>
 					</Panel>
 					<Panel header="What happens if a loan becomes undercollateralized?" key="13" className={styles.panel}>
-						<p>It is put on <a href="/app/auction" target="_blank">auction</a>. Auction participants bid to add more collateral to bring it back to a healthy
+						<p>It is put on{" "}
+							<a href="/app/auction" target="_blank" onClick={()=>{
+								ReactGA.event({
+									category: 'Home page',
+									action: 'Go to the app (auction)',
+									label: 'faq'
+								});
+							}}>auction</a>.{" "}
+							Auction participants bid to add more collateral to bring it back to a healthy
 							collateralization ratio, and the one who offers the largest additional collateral wins the auction. The
 							loan is assigned to the
 							winner while the former borrower loses the right to repay the loan and reclaim the collateral which is
@@ -150,12 +213,32 @@ export const Faq = () => {
 					</Panel>
 					<Panel header="I want to trade a stablecoin pegged to asset X but it doesn’t exist" key="14"
 								 className={styles.panel}>
-						<p>If an oracle that posts the price of X already exists, you can <a href="/app/deploy" target="_blank">create the corresponding stablecoin</a> right
-							away!</p>
+						<p>
+							If an oracle that posts the price of X already exists, you can{" "}
+							<a href="/app/deploy" target="_blank" onClick={()=>{
+								ReactGA.event({
+									category: 'Home page',
+									action: 'Go to the app (deploy)',
+									label: 'faq'
+								});
+							}}>create the corresponding stablecoin</a> right away!
+						</p>
 						<p>
 							If there is no such oracle yet &mdash; create the oracle. You have to be a developer though. There are sources
-							of <a href="https://github.com/byteball/oracle-example" target="_blank">example oracle</a> to help you get started. If you are not a developer and cannot hire one, signal your
-							demand in <a target="_blank" rel="noopener" href="https://discord.obyte.org/">Obyte discord</a>.
+							of <a href="https://github.com/byteball/oracle-example"target="_blank" onClick={()=>{
+							ReactGA.event({
+								category: 'Home page',
+								action: 'Go to github (oracle-example)',
+								label: 'faq'
+							});
+						}}>example oracle</a> to help you get started. If you are not a developer and cannot hire one, signal your
+							demand in <a target="_blank" rel="noopener" href="https://discord.obyte.org/" onClick={()=>{
+							ReactGA.event({
+								category: 'Home page',
+								action: 'Go to discord',
+								label: 'faq'
+							});
+						}}>Obyte discord</a>.
 						</p>
 					</Panel>
 				</Collapse>
