@@ -28,12 +28,12 @@ export const Faq = () => {
 					</Panel>
 					<Panel header="How do I get stablecoins?" key="2" className={styles.panel}>
 						<p>
-							Depending on your investment strategy, buy them on an exchange or issue new stablecoins on this website.
+							Depending on your investment strategy, buy them on an exchange or <a href="/app/" target="_blank">issue</a> new stablecoins on this website.
 						</p>
 					</Panel>
 					<Panel header="How are stablecoins issued?" key="3" className={styles.panel}>
 						<p>
-							Stablecoins are issued as debt against GBYTE collateral when a trader borrows them on this website. The
+							Stablecoins are <a href="/app/" target="_blank">issued</a> as debt against GBYTE collateral when a trader borrows them on this website. The
 							collateral is larger than the value of the stablecoins issued (usually 150%) to ensure that the debt is
 							properly secured.
 						</p>
@@ -47,7 +47,7 @@ export const Faq = () => {
 					</Panel>
 					<Panel header="How do I sell/redeem stablecoins?" key="5" className={styles.panel}>
 						<p>
-							Sell them on an exchange or, if you hold a loan, repay it on this website.
+							Sell them on an exchange or, if you hold a loan, <a href="/app/" target="_blank">repay it on this website</a>.
 						</p>
 					</Panel>
 					<Panel header="Where are stablecoins traded?" key="6" className={styles.panel}>
@@ -55,7 +55,7 @@ export const Faq = () => {
 							Stablecoins are traded on:
 						</p>
 						<ul>
-							<li><a target="_blank" href="https://odex.ooo/">ODEX decentralized exchange</a>: stable vs GBYTE, stable
+							<li><a target="_blank" rel="noopener" href="https://odex.ooo/">ODEX decentralized exchange</a>: stable vs GBYTE, stable
 								vs stable;
 							</li>
 							<li><a target="_blank" rel="noopener" href="https://oswap.io/">Oswap automated market maker</a> (coming soon): stable vs
@@ -93,7 +93,7 @@ export const Faq = () => {
 					<Panel header="What happens if I don’t sell stablecoins before the expiry date?" key="9"
 								 className={styles.panel}>
 						<p>
-							You can still sell them on this website but the exchange rate vs GBYTE is as it was on the expiry date.
+							You can still <a href="/app/" target="_blank">sell them on this website</a> but the exchange rate vs GBYTE is as it was on the expiry date.
 							That
 							is, your stablecoins stop being stable relative to their original benchmark (USD, BTC, …) and become
 							stable relative
@@ -141,7 +141,7 @@ export const Faq = () => {
 							trading fees.</p>
 					</Panel>
 					<Panel header="What happens if a loan becomes undercollateralized?" key="13" className={styles.panel}>
-						<p>It is put on auction. Auction participants bid to add more collateral to bring it back to a healthy
+						<p>It is put on <a href="/app/auction" target="_blank">auction</a>. Auction participants bid to add more collateral to bring it back to a healthy
 							collateralization ratio, and the one who offers the largest additional collateral wins the auction. The
 							loan is assigned to the
 							winner while the former borrower loses the right to repay the loan and reclaim the collateral which is
@@ -150,13 +150,13 @@ export const Faq = () => {
 					</Panel>
 					<Panel header="I want to trade a stablecoin pegged to asset X but it doesn’t exist" key="14"
 								 className={styles.panel}>
-						<p>If an oracle that posts the price of X already exists, you can create the corresponding stablecoin right
+						<p>If an oracle that posts the price of X already exists, you can <a href="/app/deploy" target="_blank">create the corresponding stablecoin</a> right
 							away!</p>
 						<p>
-							If there is no such oracle yet -- create the oracle. You have to be a developer though. There are sources
-							of example oracle to help you get started. If you are not a developer and cannot hire one, signal your
-							demand in Obyte
-							discord.
+							If there is no such oracle yet &mdash; create the oracle. You have to be a developer though. There are sources
+							of <a href="https://github.com/byteball/oracle-example" target="_blank">example oracle</a> to help you get started. If you are not a developer and cannot hire one, signal your
+							demand in 
+							<a target="_blank" rel="noopener" href="https://discord.obyte.org/">Obyte discord</a>.
 						</p>
 					</Panel>
 				</Collapse>
