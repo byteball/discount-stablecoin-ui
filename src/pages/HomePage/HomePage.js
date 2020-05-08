@@ -6,10 +6,10 @@ import {Faq} from "./components/Faq/Faq";
 import {Footer} from "./components/Footer/Footer";
 
 export const HomePage = () => (
-		<div className={styles.pageWrap}>
-			<Header/>
-			<UseCase/>
-			<Faq/>
-			<Footer/>
-		</div>
+	<div className={styles.pageWrap}>
+		<Header/>
+		<UseCase/>
+		<Faq/>
+		<Footer/>
+	</div>
 )

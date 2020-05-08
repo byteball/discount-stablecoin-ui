@@ -2,12 +2,21 @@ import React from "react";
 import styles from "./Header.module.css";
 import MainStyles from "../../Home.module.css";
 import growth from "./img/growth.svg";
+import ReactGA from "react-ga";
 
 export const Header = () => (
 		<header className={styles.wrap}>
 			<div className={MainStyles.container}>
 				<div className={styles.button}>
-					<a target="_blank" rel="noopener" href="/app">Open app</a>
+					<a target="_blank" rel="noopener" href="/app" onClick={()=>{
+						ReactGA.event({
+							category: 'Home page',
+							action: 'Go to the app',
+							label: 'header'
+						});
+					}}>
+						Open app
+					</a>
 				</div>
 				<div className={styles.descr}>
 					<div className={styles.titles}>

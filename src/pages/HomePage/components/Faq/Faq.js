@@ -2,6 +2,7 @@ import React from "react";
 import {Collapse, Icon} from "antd";
 import MainStyles from "../../Home.module.css";
 import styles from "./Faq.module.css"
+import ReactGA from "react-ga";
 
 const {Panel} = Collapse;
 export const Faq = () => {
@@ -55,14 +56,40 @@ export const Faq = () => {
 							Stablecoins are traded on:
 						</p>
 						<ul>
-							<li><a target="_blank" href="https://odex.ooo/">ODEX decentralized exchange</a>: stable vs GBYTE, stable
-								vs stable;
+							<li>
+								<a target="_blank" href="https://odex.ooo/" onClick={()=>{
+									ReactGA.event({
+										category: 'Home page',
+										action: 'Go to odex',
+										label: 'faq'
+									});
+								}}>
+									ODEX decentralized exchange
+								</a>: stable vs GBYTE, stable vs stable;
 							</li>
-							<li><a target="_blank" rel="noopener" href="https://odex.ooo/">Oswap automated market maker</a>: stable vs
-								GBYTE, stable vs stable;
+							<li>
+								<a target="_blank" rel="noopener" href="https://www.oswap.io/" onClick={()=>{
+									ReactGA.event({
+										category: 'Home page',
+										action: 'Go to oswap',
+										label: 'faq'
+									});
+							}}>
+									Oswap automated market maker
+								</a>
+								: stable vs GBYTE, stable vs stable;
 							</li>
-							<li><a target="_blank" rel="noopener" href="https://cryptox.pl/">Cryptox centralized exchange</a>:
-								BTC-pegged stablecoin vs BTC.
+							<li>
+								<a target="_blank" rel="noopener" href="https://cryptox.pl/" onClick={()=>{
+									ReactGA.event({
+										category: 'Home page',
+										action: 'Go to cryptox',
+										label: 'faq'
+									});
+								}}>
+									Cryptox centralized exchange
+								</a>
+								: BTC-pegged stablecoin vs BTC.
 							</li>
 						</ul>
 					</Panel>
@@ -150,13 +177,14 @@ export const Faq = () => {
 					</Panel>
 					<Panel header="I want to trade a stablecoin pegged to asset X but it doesn’t exist" key="14"
 								 className={styles.panel}>
-						<p>If an oracle that posts the price of X already exists, you can create the corresponding stablecoin right
-							away!</p>
+						<p>
+							If an oracle that posts the price of X already exists, you can create the corresponding stablecoin right
+							away!
+						</p>
 						<p>
 							If there is no such oracle yet -- create the oracle. You have to be a developer though. There are sources
 							of example oracle to help you get started. If you are not a developer and cannot hire one, signal your
-							demand in Obyte
-							discord.
+							demand in Obyte discord.
 						</p>
 					</Panel>
 				</Collapse>
