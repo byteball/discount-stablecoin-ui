@@ -36,7 +36,7 @@ export const UseCase = () => (
 								<a target="_blank" rel="noopener" href="https://cryptox.pl/">Cryptox exchange</a>.
 							</div>
 							<div className={`${styles.caseLink} ${styles.caseLinkOrange}`}>
-								<a target="_blank" rel="noopener" href="/app">Start trading</a>
+								<a target="_blank" rel="noopener" href="https://cryptox.pl/">Start trading</a>
 							</div>
 						</div>
 						<div className={`${styles.image} ${styles.image1}`}>
@@ -68,8 +68,8 @@ export const UseCase = () => (
 							</div>
 							<div className={styles.descr}>
 								BTC_20200701 is traded vs GBYTE on <a target="_blank" href="https://odex.ooo/GBYTE/BTC_20200701">
-								ODEX decentralized xchange</a> and <a target="_blank" rel="noopener" href="https://www.oswap.io/">
-								Oswap automated market maker</a>.
+								ODEX decentralized exchange</a> and <a target="_blank" rel="noopener" href="https://oswap.io/">
+								Oswap automated market maker</a> (coming soon).
 							</div>
 							<div className={`${styles.caseLink} ${styles.caseLinkYellow}`}>
 								<a target="_blank" rel="noopener" href="/app">Start trading</a>
@@ -99,11 +99,10 @@ export const UseCase = () => (
 								</ul>
 							</div>
 							<div className={styles.descr}>
-								Various stablecoins are traded on <a target="_blank" rel="noopener"
-																										 href="https://odex.ooo/GBYTE/BTC_20200701">
+								Various stablecoins are traded on <a target="_blank" rel="noopener" href="https://odex.ooo">
 								ODEX decentralized exchange
-							</a> and <a target="_blank" rel="noopener" href="https://www.oswap.io/">
-								Oswap automated market maker</a>.
+							</a> and <a target="_blank" rel="noopener" href="https://oswap.io/">
+								Oswap automated market maker</a> (coming soon).
 							</div>
 							<div className={`${styles.caseLink} ${styles.caseLinkBlue}`}>
 								<a target="_blank" rel="noopener" href="/app">Start trading</a>
