@@ -155,8 +155,7 @@ export const Faq = () => {
 						<p>
 							If there is no such oracle yet &mdash; create the oracle. You have to be a developer though. There are sources
 							of <a href="https://github.com/byteball/oracle-example" target="_blank">example oracle</a> to help you get started. If you are not a developer and cannot hire one, signal your
-							demand in 
-							<a target="_blank" rel="noopener" href="https://discord.obyte.org/">Obyte discord</a>.
+							demand in <a target="_blank" rel="noopener" href="https://discord.obyte.org/">Obyte discord</a>.
 						</p>
 					</Panel>
 				</Collapse>
