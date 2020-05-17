@@ -34,7 +34,7 @@ export const UseCase = () => (
 							</div>
 							<div className={styles.descr}>
 								BTC_20200701 is traded vs BTC on {" "}
-								<a target="_blank" rel="noopener" href="https://cryptox.pl/" onClick={()=>{
+								<a target="_blank" rel="noopener" href="https://cryptox.pl/BTC_20200701-BTC.html" onClick={()=>{
 									ReactGA.event({
 										category: 'Home page',
 										action: 'Go to cryptox',
@@ -43,7 +43,7 @@ export const UseCase = () => (
 								}}>Cryptox exchange</a>.
 							</div>
 							<div className={`${styles.caseLink} ${styles.caseLinkOrange}`}>
-								<a target="_blank" rel="noopener" href="https://cryptox.pl/" onClick={()=>{
+								<a target="_blank" rel="noopener" href="https://cryptox.pl/BTC_20200701-BTC.html" onClick={()=>{
 									ReactGA.event({
 										category: 'Home page',
 										action: 'Go to cryptox',
