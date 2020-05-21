@@ -4,6 +4,7 @@ import MainStyles from "../../Home.module.css";
 import case1 from "./img/case-1.svg";
 import case2 from "./img/case-2.svg";
 import case3 from "./img/case-3.svg";
+import ReactGA from "react-ga";
 
 export const UseCase = () => (
 		<section className="usecase">
@@ -33,10 +34,22 @@ export const UseCase = () => (
 							</div>
 							<div className={styles.descr}>
 								BTC_20200701 is traded vs BTC on {" "}
-								<a target="_blank" rel="noopener" href="https://cryptox.pl/">Cryptox exchange</a>.
+								<a target="_blank" rel="noopener" href="https://cryptox.pl/BTC_20200701-BTC.html" onClick={()=>{
+									ReactGA.event({
+										category: 'Home page',
+										action: 'Go to cryptox',
+										label: 'case 1'
+									});
+								}}>Cryptox exchange</a>.
 							</div>
 							<div className={`${styles.caseLink} ${styles.caseLinkOrange}`}>
-								<a target="_blank" rel="noopener" href="https://cryptox.pl/">Start trading</a>
+								<a target="_blank" rel="noopener" href="https://cryptox.pl/BTC_20200701-BTC.html" onClick={()=>{
+									ReactGA.event({
+										category: 'Home page',
+										action: 'Go to cryptox',
+										label: 'case 1'
+									});
+								}}>Start trading</a>
 							</div>
 						</div>
 						<div className={`${styles.image} ${styles.image1}`}>
@@ -67,12 +80,41 @@ export const UseCase = () => (
 								</ul>
 							</div>
 							<div className={styles.descr}>
-								BTC_20200701 is traded vs GBYTE on <a target="_blank" href="https://odex.ooo/GBYTE/BTC_20200701">
-								ODEX decentralized exchange</a> and <a target="_blank" rel="noopener" href="https://oswap.io/">
-								Oswap automated market maker</a> (coming soon).
+								BTC_20200701 is traded vs GBYTE on {" "}
+								<a target="_blank"
+								   href="https://odex.ooo/GBYTE/BTC_20200701"
+								   onClick={()=>{
+									   ReactGA.event({
+										   category: 'Home page',
+										   action: 'Go to odex',
+										   label: 'case 2'
+									   });
+								   }}>
+									ODEX decentralized exchange
+								</a> and {" "}
+								<a target="_blank" rel="noopener"
+								   href="https://oswap.io/"
+								   onClick={()=>{
+									   ReactGA.event({
+										   category: 'Home page',
+										   action: 'Go to oswap',
+										   label: 'case 2'
+									   });
+								   }}
+								>
+									Oswap automated market maker
+								</a> (coming soon).
 							</div>
 							<div className={`${styles.caseLink} ${styles.caseLinkYellow}`}>
-								<a target="_blank" rel="noopener" href="/app">Start trading</a>
+								<a target="_blank" rel="noopener" href="/app" onClick={()=>{
+									ReactGA.event({
+										category: 'Home page',
+										action: 'Go to the app',
+										label: 'case 2'
+									});
+								}}>
+									Start trading
+								</a>
 							</div>
 						</div>
 					</div>
@@ -99,13 +141,41 @@ export const UseCase = () => (
 								</ul>
 							</div>
 							<div className={styles.descr}>
-								Various stablecoins are traded on <a target="_blank" rel="noopener" href="https://odex.ooo">
+								Various stablecoins are traded on{" "}
+								<a target="_blank" rel="noopener"
+								   href="https://odex.ooo"
+								   onClick={()=>{
+									   ReactGA.event({
+										   category: 'Home page',
+										   action: 'Go to odex',
+										   label: 'case 3'
+									   });
+								   }}
+								>
 								ODEX decentralized exchange
-							</a> and <a target="_blank" rel="noopener" href="https://oswap.io/">
-								Oswap automated market maker</a> (coming soon).
+							</a> and {" "}<a
+								target="_blank" rel="noopener"
+								href="https://oswap.io/" onClick={()=>{
+									ReactGA.event({
+										category: 'Home page',
+										action: 'Go to oswap',
+										label: 'case 3'
+									});
+								}}
+							>
+								Oswap automated market maker
+							</a> (coming soon).
 							</div>
 							<div className={`${styles.caseLink} ${styles.caseLinkBlue}`}>
-								<a target="_blank" rel="noopener" href="/app">Start trading</a>
+								<a target="_blank" rel="noopener" href="/app" onClick={()=>{
+									ReactGA.event({
+										category: 'Home page',
+										action: 'Go to the app',
+										label: 'case 3'
+									});
+								}}>
+									Start trading
+								</a>
 							</div>
 						</div>
 						<div className={`${styles.image} ${styles.image3}`}>
