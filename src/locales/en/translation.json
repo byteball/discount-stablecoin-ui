@@ -214,7 +214,8 @@
       "titles": {
         "amount": "Stablecoins",
         "collateral": "Collateral",
-        "actions": "Actions"
+        "actions": "Actions",
+        "date": "Date of issue"
       },
       "actions": {
         "collateral": "Add collateral",

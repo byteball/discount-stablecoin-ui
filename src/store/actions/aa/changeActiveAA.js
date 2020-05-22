@@ -72,10 +72,17 @@ export const changeActiveAA = address => async (dispatch, getState) => {
         }
 
         let coins = {};
+        const getTimestamp = [];
         for (const fields in aaState) {
           const field = fields.split("_");
           if (field.length === 2 && field[0] !== "circulating") {
             const [name, type] = field;
+            getTimestamp.push(client.api.getJoint(name).then((data)=>{
+              return {
+                id: name,
+                timestamp: data.joint.unit.timestamp
+              }
+            }));
             coins[name] = {
               ...coins[name],
               [type]: aaState[fields]
@@ -96,8 +103,15 @@ export const changeActiveAA = address => async (dispatch, getState) => {
             };
           }
         }
+        const timestamps = await Promise.all(getTimestamp);
         const auctionCoins = {};
         for (let id in coins) {
+          const timestampObj = timestamps.find((data)=>id === data.id);
+
+          if(timestampObj){
+            coins[id].timestampUnit = timestampObj.timestamp;
+          }
+          
           if (
             !("expired" in coins[id]) &&
             "amount" in coins[id] &&

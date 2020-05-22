@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Row } from "antd";
 import { useSelector } from "react-redux";
-
+import moment from "moment";
 import { t } from "../../../utils";
 
 import styles from "./../LoanListByAddress.module.css";
@@ -14,7 +14,8 @@ export const LoanMobView = ({
   percent,
   disabledRepayment,
   setLoanId,
-  handleClickRepayment
+  handleClickRepayment,
+  timestampUnit
 }) => {
   const activeParams = useSelector(state => state.aa.activeParams);
   const symbol = useSelector(state => state.aa.symbol);
@@ -29,13 +30,17 @@ export const LoanMobView = ({
         {amount / 10 ** activeParams.decimals}
       </Row>
       <Row>
+      {t("components.loanListByAddress.titles.date")}:{" "}
+      {moment.unix(timestampUnit).format("YYYY-MM-DD")}
+      </Row>
+      <Row>
         {t("components.loanListByAddress.titles.collateral")}:{" "}
         {collateral / 10 ** 9} GB ({percent}%)
       </Row>
       <Row style={{ marginTop: 10 }}>
         <Button
           type="primary"
-          style={{ marginRight: 25 }}
+          style={{ marginRight: 25, marginBottom: 10 }}
           onClick={() => setLoanId(id)}
         >
           {t("components.loanListByAddress.actions.collateral")}

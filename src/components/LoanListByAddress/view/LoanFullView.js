@@ -1,6 +1,7 @@
 import { Button, Col, Row } from "antd";
 import { useSelector } from "react-redux";
 import React from "react";
+import moment from "moment";
 import { t } from "../../../utils";
 import styles from "./../LoanListByAddress.module.css";
 
@@ -12,7 +13,8 @@ export const LoanFullView = ({
   percent,
   disabledRepayment,
   setLoanId,
-  handleClickRepayment
+  handleClickRepayment,
+  timestampUnit
 }) => {
   const activeParams = useSelector(state => state.aa.activeParams);
   return (
@@ -26,13 +28,16 @@ export const LoanFullView = ({
       <Col xs={{ span: 10, offset: 0 }} md={{ span: 3, offset: 0 }}>
         {(amount / 10 ** activeParams.decimals).toFixed(activeParams.decimals)}
       </Col>
+      <Col xs={{ span: 24, offset: 0 }} md={{ span: 4, offset: 1 }}>
+        {moment.unix(timestampUnit).format("YYYY-MM-DD")}
+      </Col>
       <Col xs={{ span: 12, offset: 2 }} md={{ span: 5, offset: 1 }}>
         {(collateral / 10 ** 9).toFixed(9)} GB ({percent}%)
       </Col>
-      <Col xs={{ span: 24, offset: 0 }} md={{ span: 14, offset: 1 }}>
+      <Col xs={{ span: 24, offset: 0 }} md={{ span: 9, offset: 1 }}>
         <Button
           type="primary"
-          style={{ marginRight: 10 }}
+          style={{ marginRight: 5 }}
           onClick={() => setLoanId(id)}
         >
           {t("components.loanListByAddress.actions.collateral")}

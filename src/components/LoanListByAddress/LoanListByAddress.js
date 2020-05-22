@@ -45,7 +45,8 @@ export const LoanListByAddress = ({ address }) => {
         collateral: walletsInfo[fields].collateral,
         amount: walletsInfo[fields].amount,
         percent: percent,
-        atAuction: walletsInfo[fields].atAuction
+        atAuction: walletsInfo[fields].atAuction,
+        timestampUnit: walletsInfo[fields].timestampUnit
       });
     }
   }
@@ -57,6 +58,7 @@ export const LoanListByAddress = ({ address }) => {
       collateral: el.collateral,
       disabledRepayment: el.atAuction,
       percent: el.percent,
+      timestampUnit: el.timestampUnit,
       color: el.atAuction ? "red" : "green"
     };
   });
@@ -121,10 +123,13 @@ export const LoanListByAddress = ({ address }) => {
               ? truncate(symbol, { length: 12 })
               : t("components.loanListByAddress.titles.amount")}
           </Col>
+          <Col xs={{ span: 24, offset: 0 }} md={{ span: 4, offset: 1 }}>
+            {t("components.loanListByAddress.titles.date")}
+          </Col>
           <Col xs={{ span: 12, offset: 2 }} md={{ span: 5, offset: 1 }}>
             {t("components.loanListByAddress.titles.collateral")}
           </Col>
-          <Col xs={{ span: 24, offset: 0 }} md={{ span: 14, offset: 1 }}>
+          <Col xs={{ span: 24, offset: 0 }} md={{ span: 9, offset: 1 }}>
             {t("components.loanListByAddress.titles.actions")}
           </Col>
         </Row>
