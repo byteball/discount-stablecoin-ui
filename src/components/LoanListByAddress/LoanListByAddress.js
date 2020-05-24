@@ -30,7 +30,7 @@ export const LoanListByAddress = ({ address }) => {
         Math.pow(10, activeParams.decimals) /
         exchange_rate) *
       1e9;
-    const percent = Math.ceil(
+    const percent = Math.floor(
       (walletsInfo[fields].collateral / min_collateral) * 100
     );
 
@@ -46,20 +46,16 @@ export const LoanListByAddress = ({ address }) => {
         amount: walletsInfo[fields].amount,
         percent: percent,
         atAuction: walletsInfo[fields].atAuction,
-        timestampUnit: walletsInfo[fields].timestampUnit
+        timestampUnit: walletsInfo[fields].timestampUnit,
+        min_collateral
       });
     }
   }
   let LoanList;
   const loanListInfo = list.map(el => {
     return {
-      amount: el.amount,
-      id: el.id,
-      collateral: el.collateral,
-      disabledRepayment: el.atAuction,
-      percent: el.percent,
-      timestampUnit: el.timestampUnit,
-      color: el.atAuction ? "red" : "green"
+      ...el,
+      color: el.atAuction ? "red" : "green",
     };
   });
 
@@ -108,12 +104,15 @@ export const LoanListByAddress = ({ address }) => {
     );
   }
 
+  const currentLoanData = loanListInfo.find((data)=> loanId === data.id);
+  
   return (
     <div>
       <CollateralAddModal
         visible={!!loanId}
         id={loanId}
         address={address}
+        data={{...currentLoanData, overcollateralization: activeParams.overcollateralization_ratio}}
         onCancel={() => setLoanId(null)}
       />
       {LoanList && LoanList.length > 0 && width > 768 && (

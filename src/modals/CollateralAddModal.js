@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Form, Input, Modal } from "antd";
 import { useSelector } from "react-redux";
 
@@ -12,9 +12,23 @@ const initLoanCollateralState = {
   valid: false
 };
 
-export const CollateralAddModal = ({ visible, id, onCancel, address }) => {
+export const CollateralAddModal = ({ visible, id, onCancel, address, data }) => {
   const [loanCollateral, setLoanCollateral] = useState(initLoanCollateralState);
   const active = useSelector(state => state.aa.active);
+
+  useEffect(()=>{
+    if(visible && data.collateral < data.overcollateralization * data.min_collateral){
+    const initCount = (Math.ceil(Number(data.overcollateralization) * Number(data.min_collateral) - Number(data.collateral))/ 1e9).toFixed(9);
+
+    setLoanCollateral({
+        count: initCount,
+        help: "",
+        status: "success",
+        valid: true
+    });
+    }
+  }, [visible, data])
+
   const handleChangeCollateralCount = ev => {
     const value = ev.target.value || "";
     const reg = /^[0-9.]+$/g;
@@ -79,6 +93,10 @@ export const CollateralAddModal = ({ visible, id, onCancel, address }) => {
     onCancel();
   };
 
+  const sumCollateral = Number(loanCollateral.count || 0) + (Number(data.collateral)/ 1e9);
+
+  const ratio = visible ? 100 * (sumCollateral / (data.min_collateral / 1e9)) : 0;
+  
   return (
     <Modal
       visible={visible}
@@ -108,9 +126,16 @@ export const CollateralAddModal = ({ visible, id, onCancel, address }) => {
             placeholder={t("modals.collateralAdd.fields.count.name")}
             onChange={handleChangeCollateralCount}
             value={loanCollateral.count}
+            suffix="GB"
             size="large"
           />
         </Form.Item>
+        <p>
+          Ratio: {Math.floor(ratio) / 100}
+        </p>
+        <p>
+          Collateral: {(sumCollateral).toFixed(9)} GB
+        </p>
       </Form>
     </Modal>
   );
