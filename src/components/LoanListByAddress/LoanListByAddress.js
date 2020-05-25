@@ -5,8 +5,7 @@ import { useSelector } from "react-redux";
 import { CollateralAddModal } from "../../modals/CollateralAddModal";
 import { LoanFullView, LoanMobView } from "./view";
 import { useWindowSize } from "../../hooks/useWindowSize";
-import config from "../../config";
-import { redirect, t } from "../../utils";
+import { t } from "../../utils";
 
 import styles from "./LoanListByAddress.module.css";
 import { truncate } from "lodash";
@@ -15,8 +14,6 @@ import ReactGA from "react-ga";
 export const LoanListByAddress = ({ address }) => {
   const [width] = useWindowSize();
   const walletsInfo = useSelector(state => state.aa.activeCoins);
-  const active = useSelector(state => state.aa.active);
-  const activeInfo = useSelector(state => state.aa.activeInfo);
   const exchange_rate = useSelector(state => state.aa.activeDataFeedMa);
   const activeParams = useSelector(state => state.aa.activeParams);
   const symbol = useSelector(state => state.aa.symbol);
@@ -56,26 +53,18 @@ export const LoanListByAddress = ({ address }) => {
     return {
       ...el,
       color: el.atAuction ? "red" : "green",
+      disabledRepayment: el.atAuction,
+      address,
     };
-  });
+  }).sort((a, b) => b.timestampUnit - a.timestampUnit);
 
-  const handleClickRepayment = (id, amount) => {
-    const data = JSON.stringify({ repay: 1, id });
-    const dataBase64 = btoa(data);
+  const handleClickRepayment = (ev) => {
     ReactGA.event({
       category: 'Stablecoin',
       action: 'Exchange stablecoin for GBYTEs',
       label: 'before the expiration date (Repay the loan)',
     });
-    if (activeInfo && "asset" in activeInfo) {
-      redirect(
-        `obyte${
-          config.TESTNET ? "-tn" : ""
-        }:${active}?amount=${amount}&asset=${encodeURIComponent(
-          activeInfo.asset
-        )}&base64data=${encodeURIComponent(dataBase64)}&from_address=${address}`
-      );
-    }
+    
   };
   if (width > 768 && list.length > 0) {
     LoanList = loanListInfo.map((info, i) => (
@@ -117,13 +106,13 @@ export const LoanListByAddress = ({ address }) => {
       />
       {LoanList && LoanList.length > 0 && width > 768 && (
         <Row className={styles.mobTitle}>
-          <Col xs={{ span: 10, offset: 0 }} md={{ span: 3, offset: 0 }}>
+          <Col xs={{ span: 24, offset: 0 }} md={{ span: 4, offset: 0 }}>
+            {t("components.loanListByAddress.titles.date")}
+          </Col>
+          <Col xs={{ span: 10, offset: 0 }} md={{ span: 3, offset: 1 }}>
             {symbol
               ? truncate(symbol, { length: 12 })
               : t("components.loanListByAddress.titles.amount")}
-          </Col>
-          <Col xs={{ span: 24, offset: 0 }} md={{ span: 4, offset: 1 }}>
-            {t("components.loanListByAddress.titles.date")}
           </Col>
           <Col xs={{ span: 12, offset: 2 }} md={{ span: 5, offset: 1 }}>
             {t("components.loanListByAddress.titles.collateral")}

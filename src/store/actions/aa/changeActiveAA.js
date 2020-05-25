@@ -147,7 +147,7 @@ export const changeActiveAA = address => async (dispatch, getState) => {
               const isEnded =
                 moment(DateNow) > Number(coins[id].auction_end_ts);
               auctionCoins[id] = { ...coins[id] };
-              auctionCoins[id].opening_collateral = Math.round(
+              auctionCoins[id].opening_collateral = Math.ceil(
                 min_collateral * overcollateralization_ratio
               );
               if (!("winner_bid" in coins[id])) {

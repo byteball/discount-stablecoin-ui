@@ -14,10 +14,9 @@ import {
 
 import history from "../../history";
 import client from "../../socket";
-import { redirect } from "../../utils";
 import config from "../../config";
 
-export const pendingDeployRequest = (params, url) => async (
+export const pendingDeployRequest = (params) => async (
   dispatch,
   getState
 ) => {
@@ -47,7 +46,6 @@ export const pendingDeployRequest = (params, url) => async (
       data_feed_ma &&
       data_feed_ma !== "none"
     ) {
-      redirect(url);
       dispatch({
         type: PENDING_DEPLOY_REQUEST,
         payload: params

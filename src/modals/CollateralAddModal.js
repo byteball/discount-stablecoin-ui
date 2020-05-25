@@ -73,21 +73,20 @@ export const CollateralAddModal = ({ visible, id, onCancel, address, data }) => 
     }
   };
 
+  const dataUrl = JSON.stringify({ add_collateral: 1, id });
+  const dataBase64 = btoa(dataUrl);
+  const url = `obyte${ config.TESTNET ? "-tn" : "" }:${active}?amount=${loanCollateral.count *
+        10 ** 9}&base64data=${encodeURIComponent(dataBase64)}&from_address=${address}`;
+
   const addCollateral = ev => {
-    if (ev) {
+    setLoanCollateral(initLoanCollateralState);
+    if(ev){
       ev.preventDefault();
     }
-    const data = JSON.stringify({ add_collateral: 1, id });
-    const dataBase64 = btoa(data);
-    redirect(
-      `obyte${
-        config.TESTNET ? "-tn" : ""
-      }:${active}?amount=${loanCollateral.count *
-        10 ** 9}&base64data=${encodeURIComponent(dataBase64)}&from_address=${address}`
-    );
-    setLoanCollateral(initLoanCollateralState);
+    redirect(url);
     onCancel();
   };
+
   const handleCancel = () => {
     setLoanCollateral(initLoanCollateralState);
     onCancel();
@@ -106,14 +105,16 @@ export const CollateralAddModal = ({ visible, id, onCancel, address, data }) => 
         <Button key="cancel" onClick={handleCancel}>
           {t("modals.collateralAdd.submits.cancel.name")}
         </Button>,
-        <Button
+        <a
+          href={url}
           key="add"
-          type="primary"
+          className="ant-btn ant-btn-primary"
+          style={{marginLeft: 5}}
           onClick={addCollateral}
           disabled={!loanCollateral.valid}
         >
           {t("modals.collateralAdd.submits.add.name")}
-        </Button>
+        </a>
       ]}
     >
       <Form onSubmit={addCollateral}>
@@ -130,12 +131,14 @@ export const CollateralAddModal = ({ visible, id, onCancel, address, data }) => 
             size="large"
           />
         </Form.Item>
-        <p>
-          Ratio: {Math.floor(ratio) / 100}
-        </p>
-        <p>
-          Collateral: {(sumCollateral).toFixed(9)} GB
-        </p>
+        {!isNaN(sumCollateral) && <>
+          <p>
+            New collateralization ratio: {Math.floor(ratio) / 100}
+          </p>
+          <p>
+            New collateral: {(sumCollateral).toFixed(9)} GB
+          </p>
+        </>}
       </Form>
     </Modal>
   );
