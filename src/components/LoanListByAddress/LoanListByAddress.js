@@ -11,11 +11,15 @@ import styles from "./LoanListByAddress.module.css";
 import { truncate } from "lodash";
 import ReactGA from "react-ga";
 
+import config from "../../config";
+
 export const LoanListByAddress = ({ address }) => {
   const [width] = useWindowSize();
   const walletsInfo = useSelector(state => state.aa.activeCoins);
   const exchange_rate = useSelector(state => state.aa.activeDataFeedMa);
   const activeParams = useSelector(state => state.aa.activeParams);
+  const active = useSelector(state => state.aa.active);
+  const activeInfo = useSelector(state => state.aa.activeInfo);
   const symbol = useSelector(state => state.aa.symbol);
 
   const [loanId, setLoanId] = useState(null);
@@ -43,20 +47,27 @@ export const LoanListByAddress = ({ address }) => {
         amount: walletsInfo[fields].amount,
         percent: percent,
         atAuction: walletsInfo[fields].atAuction,
-        timestampUnit: walletsInfo[fields].timestampUnit,
+        unitTimestamp: walletsInfo[fields].unitTimestamp,
         min_collateral
       });
     }
   }
   let LoanList;
   const loanListInfo = list.map(el => {
+    const dataRepay = JSON.stringify({ repay: 1, id: el.id });
+    const dataBase64Repay = btoa(dataRepay);
     return {
       ...el,
       color: el.atAuction ? "red" : "green",
       disabledRepayment: el.atAuction,
       address,
+      urlRepay: `obyte${
+        config.TESTNET ? "-tn" : ""
+      }:${active}?amount=${el.amount}&asset=${encodeURIComponent(
+        activeInfo.asset
+      )}&base64data=${encodeURIComponent(dataBase64Repay)}&from_address=${address}`
     };
-  }).sort((a, b) => b.timestampUnit - a.timestampUnit);
+  }).sort((a, b) => b.unitTimestamp - a.unitTimestamp);
 
   const handleClickRepayment = (ev) => {
     ReactGA.event({

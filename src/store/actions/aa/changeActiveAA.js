@@ -109,7 +109,7 @@ export const changeActiveAA = address => async (dispatch, getState) => {
           const timestampObj = timestamps.find((data)=>id === data.id);
 
           if(timestampObj){
-            coins[id].timestampUnit = timestampObj.timestamp;
+            coins[id].unitTimestamp = timestampObj.timestamp;
           }
           
           if (

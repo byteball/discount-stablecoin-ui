@@ -94,7 +94,6 @@ export const PlaceBidModal = ({ visible, id, min, onCancel }) => {
         </Button>,
         <a
           key="add"
-          // type="primary"
           href={url}
           className="ant-btn ant-btn-primary"
           style={{marginLeft: 10}}

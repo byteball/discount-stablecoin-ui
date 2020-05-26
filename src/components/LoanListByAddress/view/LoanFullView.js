@@ -4,7 +4,6 @@ import React from "react";
 import moment from "moment";
 import { t } from "../../../utils";
 import styles from "./../LoanListByAddress.module.css";
-import config from "../../../config";
 
 export const LoanFullView = ({
   id,
@@ -15,19 +14,10 @@ export const LoanFullView = ({
   disabledRepayment,
   setLoanId,
   handleClickRepayment,
-  timestampUnit,
-  address
+  unitTimestamp,
+  urlRepay
 }) => {
   const activeParams = useSelector(state => state.aa.activeParams);
-  const active = useSelector(state => state.aa.active);
-  const activeInfo = useSelector(state => state.aa.activeInfo);
-  const dataRepay = JSON.stringify({ repay: 1, id });
-  const dataBase64Repay = btoa(dataRepay);
-  const urlRepay = `obyte${
-    config.TESTNET ? "-tn" : ""
-  }:${active}?amount=${amount}&asset=${encodeURIComponent(
-    activeInfo.asset
-  )}&base64data=${encodeURIComponent(dataBase64Repay)}&from_address=${address}`;
 
   return (
     <Row
@@ -38,7 +28,7 @@ export const LoanFullView = ({
       style={{ color }}
     >
       <Col xs={{ span: 24, offset: 0 }} md={{ span: 4, offset: 0 }}>
-        {moment.unix(timestampUnit).format("YYYY-MM-DD")}
+        {moment.unix(unitTimestamp).format("YYYY-MM-DD")}
       </Col>
       <Col xs={{ span: 10, offset: 0 }} md={{ span: 3, offset: 1 }}>
         {(amount / 10 ** activeParams.decimals).toFixed(activeParams.decimals)}
