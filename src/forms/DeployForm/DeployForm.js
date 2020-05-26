@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import obyte from "obyte";
 import ReactGA from "react-ga";
 import { trim } from "lodash";
-import { Form, Input, Button, Row, Col, DatePicker } from "antd";
+import { Form, Input, Row, Col, DatePicker } from "antd";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 
@@ -251,14 +251,10 @@ export const DeployForm = ({ params }) => {
     }
   };
   const handleSummit = ev => {
-    ev.preventDefault();
     ReactGA.event({
       category: 'Deploy',
       action: 'Create stablecoin',
     });
-    const url = `obyte${
-      config.TESTNET ? "-tn" : ""
-      }:data?app=definition&definition=${encodeURIComponent(AA)}`;
     dispatch(
       pendingDeployRequest(
         {
@@ -275,8 +271,7 @@ export const DeployForm = ({ params }) => {
           feed_name: feedName.value,
           ma_feed_name: maFeedName.value,
           expiry_date: expiryDate.valid && expiryDate.value.format("YYYY-MM-DD")
-        },
-        url
+        }
       )
     );
   };
@@ -308,7 +303,7 @@ export const DeployForm = ({ params }) => {
     expiryDate.valid;
 
   return (
-    <Form onSubmit={handleSummit}>
+    <Form>
       <Row>
         <Form.Item
           hasFeedback
@@ -476,14 +471,12 @@ export const DeployForm = ({ params }) => {
       </Row>
       <Row>
         <Form.Item>
-          <Button
-            type="primary"
-            size="large"
-            htmlType="submit"
-            disabled={!validInputsData}
-          >
+          <a href={`obyte${ config.TESTNET ? "-tn" : "" }:data?app=definition&definition=${encodeURIComponent(AA)}`}
+          disabled={!validInputsData}
+          className="ant-btn ant-btn-primary ant-btn-lg"
+          onClick={handleSummit}>
             {t("forms.deploy.submit")}
-          </Button>
+          </a>
         </Form.Item>
       </Row>
     </Form>

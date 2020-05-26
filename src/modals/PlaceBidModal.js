@@ -65,19 +65,19 @@ export const PlaceBidModal = ({ visible, id, min, onCancel }) => {
     }
   };
 
+  const data = JSON.stringify({ seize: 1, id });
+  const dataBase64 = btoa(data);
+  const url = `obyte${config.TESTNET ? "-tn" : ""}:${active}?amount=${loanBid.count * 10 ** 9}&asset=base&base64data=${encodeURIComponent(dataBase64)}`;
+  
   const addCollateral = ev => {
     if (ev) {
       ev.preventDefault();
     }
-    const data = JSON.stringify({ seize: 1, id });
-    const dataBase64 = btoa(data);
-    redirect(
-      `obyte${config.TESTNET ? "-tn" : ""}:${active}?amount=${loanBid.count *
-        10 ** 9}&base64data=${encodeURIComponent(dataBase64)}`
-    );
+    redirect(url);
     setLoanBid(initLoanBidState);
     onCancel();
   };
+
   const handleCancel = () => {
     setLoanBid(initLoanBidState);
     onCancel();
@@ -92,14 +92,16 @@ export const PlaceBidModal = ({ visible, id, min, onCancel }) => {
         <Button key="cancel" onClick={handleCancel}>
           {t("modals.placeBid.submits.cancel.name")}
         </Button>,
-        <Button
+        <a
           key="add"
-          type="primary"
+          href={url}
+          className="ant-btn ant-btn-primary"
+          style={{marginLeft: 10}}
           onClick={addCollateral}
           disabled={!loanBid.valid}
         >
           {t("modals.placeBid.submits.place.name")}
-        </Button>
+        </a>
       ]}
     >
       <p>{t("modals.placeBid.descr")}</p>
@@ -114,6 +116,7 @@ export const PlaceBidModal = ({ visible, id, min, onCancel }) => {
             onChange={handleChangeCollateralCount}
             value={loanBid.count}
             size="large"
+            suffix="GB"
           />
         </Form.Item>
       </Form>
