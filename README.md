@@ -1,4 +1,4 @@
-# ostable
+# Discount Stablecoins
 ## Install
 Install node.js, clone the repository, then say
 ```sh
