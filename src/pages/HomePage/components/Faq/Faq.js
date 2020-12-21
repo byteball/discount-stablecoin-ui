@@ -178,7 +178,7 @@ export const Faq = () => {
 					</Panel>
 					<Panel header="How are discount stablecoins different from DAI, USDT, USDC, etc?" key="11"
 								 className={styles.panel}>
-						<p>Discount stablecons appreciate, while the other ones don’t.</p>
+						<p>Discount stablecoins appreciate, while the other ones don’t.</p>
 						<p>Discount stablecoins are an investment instrument in the first place, while every other stablecoin is a
 							payment medium.</p>
 					</Panel>
