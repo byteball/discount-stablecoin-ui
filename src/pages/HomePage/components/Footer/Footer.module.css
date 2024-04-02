@@ -9,6 +9,14 @@
     white-space: pre-line;
 }
 
+.footer_copy {
+    text-align: center;
+}
+
+.footer_copy a {
+    color:#000000A6;
+}
+
 .discord {
     text-align: center;
     padding-top: 50px;
