@@ -31,7 +31,7 @@ export const AboutPage = ()=><Layout title="About" page="about">
 				</li>
 			</ul>
 			<p>
-				<a href="https://medium.com/obyte/introducing-discount-stablecoins-6e7b5e9a8fd6" target="_blank" rel="noopener">Learn more about discount stablecoins</a>.
+				<a href="https://blog.obyte.org/introducing-discount-stablecoins-6e7b5e9a8fd6" target="_blank" rel="noopener">Learn more about discount stablecoins</a>.
 			</p>
 		</Col>
 	</Row>

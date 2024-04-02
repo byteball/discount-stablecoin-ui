@@ -8,7 +8,7 @@ export const Footer = () => (
 			<div className={MainStyles.container}>
 				<div className={styles.discord}>
 					Any other questions? Read the{" "}
-					<a target="_blank" href="https://medium.com/obyte/introducing-discount-stablecoins-6e7b5e9a8fd6"
+					<a target="_blank" href="https://blog.obyte.org/introducing-discount-stablecoins-6e7b5e9a8fd6"
 					   onClick={()=>{
 						   ReactGA.event({
 							   category: 'Home page',
