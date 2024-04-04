@@ -103,7 +103,7 @@ export const UseCase = () => (
 								   }}
 								>
 									Oswap automated market maker
-								</a> (coming soon).
+								</a>.
 							</div>
 							<div className={`${styles.caseLink} ${styles.caseLinkYellow}`}>
 								<a target="_blank" rel="noopener" href="/app" onClick={()=>{
@@ -164,7 +164,7 @@ export const UseCase = () => (
 								}}
 							>
 								Oswap automated market maker
-							</a> (coming soon).
+							</a>.
 							</div>
 							<div className={`${styles.caseLink} ${styles.caseLinkBlue}`}>
 								<a target="_blank" rel="noopener" href="/app" onClick={()=>{

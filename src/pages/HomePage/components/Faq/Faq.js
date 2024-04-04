@@ -96,7 +96,7 @@ export const Faq = () => (
 							});
 						}}>
 							Oswap automated market maker
-						</a> (coming soon): stable vs GBYTE, stable vs stable;
+						</a>: stable vs GBYTE, stable vs stable;
 					</li>
 					<li>
 						<a target="_blank" rel="noopener" href="https://cryptox.pl/BTC_20200701-BTC.html" onClick={() => {
