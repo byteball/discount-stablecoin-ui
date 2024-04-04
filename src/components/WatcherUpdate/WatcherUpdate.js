@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { message, Result, Spin } from "antd";
+import { message, Result } from "antd";
 import ReactGA from "react-ga";
 import obyte from "obyte";
 import {
@@ -88,23 +88,6 @@ export const WatcherUpdate = props => {
     });
   });
 
-  if (!listByBaseLoaded) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100vw",
-          height: "100vh"
-        }}
-      >
-        <div>
-          <Spin size="large" />
-        </div>
-      </div>
-    );
-  }
   if (network) {
     return <div>{props.children}</div>;
   } else if (!network) {
