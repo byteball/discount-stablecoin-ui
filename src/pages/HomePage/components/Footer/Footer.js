@@ -27,7 +27,7 @@ export const Footer = () => (
 						});
 					}}>discord</a>.
 				</div>
-				<div className={styles.footer_copy}>&copy; <a target="_blank" rel="noopener" href="https://obyte.org/">Obyte</a></div>
+				<div className={styles.footer_copy}><a target="_blank" rel="noopener" href="https://obyte.org/">Built on Obyte</a></div>
 			</div>
 		</footer>
 )
